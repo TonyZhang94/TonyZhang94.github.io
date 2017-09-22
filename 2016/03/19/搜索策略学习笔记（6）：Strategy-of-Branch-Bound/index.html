@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="BFS,DFS,算法,Foundation of AI," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="围城个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="承接我的搜索学习笔记（4）BFS最优问题求解实例、（5）DFS最优问题求解的缺陷，我在问题搜索求解的过程中添加剪枝条件，并且对BFS和DFS分别进行了剪枝前后的性能测试，结果和总结我写在了这篇文章的最后 BFS with Bounds &amp;amp; Constraints12345678910111213141516171819202122232425262728293031323334353637">
+<meta name="keywords" content="BFS,DFS,算法,Foundation of AI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜索策略学习笔记（6）：Strategy of Branch &amp; Bound">
+<meta property="og:url" content="http://yoursite.com/2016/03/19/搜索策略学习笔记（6）：Strategy-of-Branch-Bound/index.html">
+<meta property="og:site_name" content="围城个人博客">
+<meta property="og:description" content="承接我的搜索学习笔记（4）BFS最优问题求解实例、（5）DFS最优问题求解的缺陷，我在问题搜索求解的过程中添加剪枝条件，并且对BFS和DFS分别进行了剪枝前后的性能测试，结果和总结我写在了这篇文章的最后 BFS with Bounds &amp;amp; Constraints12345678910111213141516171819202122232425262728293031323334353637">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-22T04:44:42.151Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搜索策略学习笔记（6）：Strategy of Branch &amp; Bound">
+<meta name="twitter:description" content="承接我的搜索学习笔记（4）BFS最优问题求解实例、（5）DFS最优问题求解的缺陷，我在问题搜索求解的过程中添加剪枝条件，并且对BFS和DFS分别进行了剪枝前后的性能测试，结果和总结我写在了这篇文章的最后 BFS with Bounds &amp;amp; Constraints12345678910111213141516171819202122232425262728293031323334353637">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.5.0',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    tabs: ,
+    motion: "",
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>搜索策略学习笔记（6）：Strategy of Branch & Bound | 围城个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">围城个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人丑就要多读书</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/19/搜索策略学习笔记（6）：Strategy-of-Branch-Bound/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="围城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="围城个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">搜索策略学习笔记（6）：Strategy of Branch & Bound</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/19/搜索策略学习笔记（6）：Strategy-of-Branch-Bound/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/19/搜索策略学习笔记（6）：Strategy-of-Branch-Bound/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>承接我的搜索学习笔记（4）BFS最优问题求解实例、（5）DFS最优问题求解的缺陷，我在问题搜索求解的过程中添加剪枝条件，并且对BFS和DFS分别进行了剪枝前后的性能测试，结果和总结我写在了这篇文章的最后</p>
+<h2 id="BFS-with-Bounds-amp-Constraints"><a href="#BFS-with-Bounds-amp-Constraints" class="headerlink" title="BFS with Bounds &amp; Constraints"></a>BFS with Bounds &amp; Constraints</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Title：BFS with bounds &amp; constraints</span></div><div class="line"><span class="comment">//Author：Call偶围城</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAP_SIZE 10</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> QUEUE_LEN 100000</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> WALL  0</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EMPTY 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> START 2</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EXIT  3</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> RESET 4</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_LIFE 6</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">int</span> j;</div><div class="line">	<span class="keyword">int</span> life;</div><div class="line">	<span class="keyword">int</span> step;</div><div class="line">	<span class="keyword">int</span> id;</div><div class="line">	<span class="keyword">int</span> father;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> di[<span class="number">4</span>] = &#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> dj[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> arrow[<span class="number">4</span>][<span class="number">10</span>] = &#123;<span class="string">"up"</span>,<span class="string">"down"</span>,<span class="string">"left"</span>,<span class="string">"right"</span>&#125;;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> <span class="title">queue</span>[<span class="title">QUEUE_LEN</span>];</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> <span class="title">x</span>,<span class="title">y</span>;</span></div><div class="line"><span class="keyword">int</span> head,tail;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n,m;</div><div class="line"><span class="keyword">int</span> <span class="built_in">map</span>[MAP_SIZE][MAP_SIZE];</div><div class="line"><span class="keyword">int</span> min;</div><div class="line"></div><div class="line"><span class="comment">//int cnt;</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">append</span><span class="params">(struct node q,<span class="keyword">int</span> first)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (first != <span class="number">1</span>) &#123;</div><div class="line">		<span class="keyword">for</span> (i = head;i &lt;= tail;i++) &#123;</div><div class="line">			<span class="keyword">if</span> (<span class="built_in">queue</span>[i].i == q.i &amp;&amp; <span class="built_in">queue</span>[i].j == q.j) &#123;</div><div class="line">				<span class="keyword">if</span> (<span class="built_in">queue</span>[i].step == q.step &amp;&amp; <span class="built_in">queue</span>[i].life &gt;= q.life) &#123;</div><div class="line"></div><div class="line">					<span class="keyword">return</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> &#123;</div><div class="line">		q.father = tail;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	q.id = tail;</div><div class="line">	<span class="built_in">queue</span>[tail] = q;</div><div class="line"></div><div class="line">	tail = (tail + <span class="number">1</span>) % QUEUE_LEN;</div><div class="line"></div><div class="line">	<span class="keyword">return</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">struct node <span class="title">serve</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> <span class="title">q</span> = <span class="title">queue</span>[<span class="title">head</span>];</span></div><div class="line"></div><div class="line">	head = (head + <span class="number">1</span>) % QUEUE_LEN;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> q;	</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (head == tail) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> s_i,s_j;</div><div class="line"></div><div class="line">	<span class="keyword">int</span> i;</div><div class="line"></div><div class="line">	<span class="keyword">while</span> (!IsEmpty()) &#123;</div><div class="line">		<span class="comment">//cnt++;</span></div><div class="line"></div><div class="line">		x = serve();</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (<span class="built_in">map</span>[x.i][x.j] == EXIT) &#123;</div><div class="line">			min = x.step;</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (x.life &lt;= <span class="number">1</span>) &#123;</div><div class="line">			<span class="keyword">continue</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i++) &#123;</div><div class="line">			s_i = x.i + di[i];</div><div class="line">			s_j = x.j + dj[i];</div><div class="line"></div><div class="line">			<span class="keyword">if</span> ((<span class="number">1</span> &lt;= s_i &amp;&amp; s_i &lt;= n)</div><div class="line">			 &amp;&amp; (<span class="number">1</span> &lt;= s_j &amp;&amp; s_j &lt;= m)</div><div class="line">			 &amp;&amp; <span class="built_in">map</span>[s_i][s_j] != WALL</div><div class="line">			 &amp;&amp; !(s_i == <span class="built_in">queue</span>[x.father].i</div><div class="line">			   &amp;&amp; s_j == <span class="built_in">queue</span>[x.father].j)</div><div class="line">			) &#123;</div><div class="line"></div><div class="line">				y.i = s_i;</div><div class="line">				y.j = s_j;</div><div class="line">				</div><div class="line">				<span class="keyword">if</span> (<span class="built_in">map</span>[s_i][s_j] == RESET) &#123;</div><div class="line">					y.life = MAX_LIFE;</div><div class="line"></div><div class="line">					<span class="built_in">map</span>[s_i][s_j] = EMPTY;</div><div class="line"></div><div class="line">					y.step = x.step + <span class="number">1</span>;</div><div class="line"></div><div class="line">					append(y,<span class="number">1</span>);</div><div class="line">				&#125; </div><div class="line">				<span class="keyword">else</span> &#123;</div><div class="line">					y.life = x.life - <span class="number">1</span>;</div><div class="line">					y.step = x.step + <span class="number">1</span>;</div><div class="line">					y.father = x.id;</div><div class="line"></div><div class="line">					append(y,<span class="number">0</span>);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;				</div><div class="line">	&#125;	</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> N;</div><div class="line">	<span class="keyword">int</span> s_i,s_j;</div><div class="line"></div><div class="line">	<span class="keyword">int</span> i,j;</div><div class="line"></div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</div><div class="line"></div><div class="line">	<span class="keyword">while</span> (N--) &#123;</div><div class="line">		head = tail = <span class="number">0</span>;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">		</div><div class="line">		<span class="keyword">for</span> (i = <span class="number">1</span>;i &lt;= n;i++) &#123;</div><div class="line">			<span class="keyword">for</span> (j = <span class="number">1</span>;j &lt;= m;j++) &#123;</div><div class="line">				<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;<span class="built_in">map</span>[i][j]);</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (<span class="built_in">map</span>[i][j] == START) &#123;</div><div class="line">					x.i = i;</div><div class="line">					x.j = j;</div><div class="line">					x.life = MAX_LIFE;</div><div class="line">					x.step = <span class="number">0</span>;</div><div class="line"></div><div class="line">					append(x,<span class="number">1</span>);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="comment">//cnt = 0;</span></div><div class="line">		min = <span class="number">-1</span>;</div><div class="line"></div><div class="line">		bfs();</div><div class="line">		</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,min);</div><div class="line">		<span class="comment">//printf("cnt=%d\n",cnt);</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="DFS-with-Bounds-amp-Constraints"><a href="#DFS-with-Bounds-amp-Constraints" class="headerlink" title="DFS with Bounds &amp; Constraints"></a>DFS with Bounds &amp; Constraints</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Title：DFS with bounds &amp; constraints</span></div><div class="line"><span class="comment">//Author：Call偶围城</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 10 </span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> WALL  0</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EMPTY 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> START 2</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EXIT  3</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> RESET 4</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> RESET_EMPTY 5</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_LIFE 6</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BACK 2 </span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> VISITED 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> UNVISITED 0</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> maze[SIZE][SIZE];</div><div class="line"><span class="keyword">int</span> vis[SIZE][SIZE];</div><div class="line"><span class="keyword">int</span> n,m;</div><div class="line"><span class="keyword">int</span> min;</div><div class="line"></div><div class="line"><span class="comment">//int cnt;</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Visit</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">int</span> life,<span class="keyword">int</span> time,<span class="keyword">int</span> back)</span> </span>&#123;</div><div class="line">	<span class="comment">//cnt++;</span></div><div class="line">	</div><div class="line">	<span class="keyword">if</span> (life &lt;= <span class="number">0</span> || (min != <span class="number">-1</span> &amp;&amp; time &gt;= min)) &#123;</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (maze[i][j] == WALL) &#123;</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (maze[i][j] == EXIT) &#123;</div><div class="line">		min = time;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (maze[i][j] == RESET) &#123;</div><div class="line">		life = MAX_LIFE;</div><div class="line">		back = BACK;</div><div class="line">		maze[i][j] = RESET_EMPTY;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	vis[i][j] = VISITED;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (i+<span class="number">1</span> &lt;= n &amp;&amp; (vis[i+<span class="number">1</span>][j] == UNVISITED || back &gt; <span class="number">0</span>) &amp;&amp; maze[i+<span class="number">1</span>][j] != RESET_EMPTY) &#123;</div><div class="line">		Visit(i+<span class="number">1</span>,j,life<span class="number">-1</span>,time+<span class="number">1</span>,back<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (j+<span class="number">1</span> &lt;= m &amp;&amp; (vis[i][j+<span class="number">1</span>] == UNVISITED || back &gt; <span class="number">0</span>) &amp;&amp; maze[i][j+<span class="number">1</span>] != RESET_EMPTY) &#123;</div><div class="line">                Visit(i,j+<span class="number">1</span>,life<span class="number">-1</span>,time+<span class="number">1</span>,back<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (<span class="number">1</span> &lt;= i<span class="number">-1</span> &amp;&amp; (vis[i<span class="number">-1</span>][j] == UNVISITED || back &gt; <span class="number">0</span>) &amp;&amp; maze[i<span class="number">-1</span>][j] != RESET_EMPTY) &#123;</div><div class="line">		Visit(i<span class="number">-1</span>,j,life<span class="number">-1</span>,time+<span class="number">1</span>,back<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (<span class="number">1</span> &lt;= j<span class="number">-1</span> &amp;&amp; (vis[i][j<span class="number">-1</span>] == UNVISITED || back &gt; <span class="number">0</span>) &amp;&amp; maze[i][j<span class="number">-1</span>] != RESET_EMPTY) &#123;</div><div class="line">		Visit(i,j<span class="number">-1</span>,life<span class="number">-1</span>,time+<span class="number">1</span>,back<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (maze[i][j] == RESET_EMPTY)</div><div class="line">		maze[i][j] = RESET;</div><div class="line">	</div><div class="line">	<span class="keyword">if</span> (back &lt; <span class="number">0</span>)</div><div class="line">		vis[i][j] = UNVISITED;</div><div class="line"></div><div class="line">	<span class="keyword">return</span>;</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> N;</div><div class="line">	<span class="keyword">int</span> pos_i,pos_j;</div><div class="line"></div><div class="line">	<span class="keyword">int</span> i,j;</div><div class="line"></div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</div><div class="line"></div><div class="line">	<span class="keyword">while</span> (N--) &#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">		</div><div class="line">		<span class="keyword">for</span> (i = <span class="number">1</span>;i &lt;= n;i++) &#123;</div><div class="line">			<span class="keyword">for</span> (j = <span class="number">1</span>;j &lt;= m;j++) &#123;</div><div class="line">				vis[i][j] = UNVISITED;</div><div class="line"></div><div class="line">				<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;maze[i][j]);</div><div class="line">		</div><div class="line">				<span class="keyword">if</span> (maze[i][j] == START) &#123;</div><div class="line">					pos_i = i;</div><div class="line">					pos_j = j;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125; </div><div class="line">		</div><div class="line">		<span class="comment">//cnt = 0;</span></div><div class="line">		min = <span class="number">-1</span>;</div><div class="line">	</div><div class="line">		Visit(pos_i,pos_j,MAX_LIFE,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line"></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,min);</div><div class="line">		<span class="comment">//printf("cnt=%d\n",cnt);</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="Property-Comparison"><a href="#Property-Comparison" class="headerlink" title="Property Comparison"></a>Property Comparison</h2><p>以下是各类搜索在案例测试中的搜索次数的比较：<br>—-  | Case1     |   Case1 |   Case1 |<br>    without bounds or constrains<br> BFS  |—– 34   |—-119 |— 164 |<br> DFS  |—– 36   |—-989 |— 564 |<br> with bounds and constrains<br> BFS  |—– 10   |—— 14|—- 32 |<br> DFS  |—– 23   |—— 35|—- 57 |<br><br><br><br>关于我最近对搜索问题的学习，我最后还想说几句：</p>
+<p>1.剪枝很重要<br>2.当求最短路径时，用BFS绝对比DFS好，尤其是程序出bug后，打印调试时，dfs几百行的数据一条条验证我的内心是崩溃的。。。<br>3.未剪枝的DFS应该可以AC，如果不考虑时间限制</p>
+<hr>
+<p>注：读者可以进一步了解其他常用的搜索算法，如双向宽度优先搜索，启发式搜索（A*算法）。我在整理时看到一篇比较好的博客，在这里推荐给大家<br><a href="http://blog.csdn.net/huangxy10/article/details/8034285" target="_blank" rel="external">http://blog.csdn.net/huangxy10/article/details/8034285</a><br>博主用C++对象的形式，以八数码问题为案例展示了各类搜索算法</p>
+<p><br><br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BFS/" rel="tag"># BFS</a>
+          
+            <a href="/tags/DFS/" rel="tag"># DFS</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/Foundation-of-AI/" rel="tag"># Foundation of AI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/18/搜索策略学习笔记（5）：DFS最优问题求解的缺陷/" rel="next" title="搜索策略学习笔记（5）：DFS最优问题求解的缺陷">
+                <i class="fa fa-chevron-left"></i> 搜索策略学习笔记（5）：DFS最优问题求解的缺陷
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/27/Centos配置J2EE环境/" rel="prev" title="Centos配置J2EE环境">
+                Centos配置J2EE环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/19/搜索策略学习笔记（6）：Strategy-of-Branch-Bound/"
+           data-title="搜索策略学习笔记（6）：Strategy of Branch & Bound" data-url="http://yoursite.com/2016/03/19/搜索策略学习笔记（6）：Strategy-of-Branch-Bound/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/uploads/portrait.jpg"
+              alt="围城" />
+          
+            <p class="site-author-name" itemprop="name">围城</p>
+            <p class="site-description motion-element" itemprop="description">Java|Python</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyZhang94" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-globe"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5321154334" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS-with-Bounds-amp-Constraints"><span class="nav-number">1.</span> <span class="nav-text">BFS with Bounds & Constraints</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFS-with-Bounds-amp-Constraints"><span class="nav-number">2.</span> <span class="nav-text">DFS with Bounds & Constraints</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Property-Comparison"><span class="nav-number">3.</span> <span class="nav-text">Property Comparison</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">围城</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"callouweicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

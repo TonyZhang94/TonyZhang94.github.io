@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="围城个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="TargetGet all the titles and urls of my blogs. Design Firstly, the Crawler needs one controller(WebCrawler) to scheme the itself.The controller sends the root url to the urlManager.Then judges whether">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My First Web Crawler">
+<meta property="og:url" content="http://yoursite.com/2016/07/11/My-First-Web-Crawler/index.html">
+<meta property="og:site_name" content="围城个人博客">
+<meta property="og:description" content="TargetGet all the titles and urls of my blogs. Design Firstly, the Crawler needs one controller(WebCrawler) to scheme the itself.The controller sends the root url to the urlManager.Then judges whether">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20160724170353239">
+<meta property="og:image" content="http://img.blog.csdn.net/20160724170717688">
+<meta property="og:image" content="http://img.blog.csdn.net/20160724170418044">
+<meta property="og:image" content="http://img.blog.csdn.net/20160724170448201">
+<meta property="og:updated_time" content="2017-09-22T04:44:49.873Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My First Web Crawler">
+<meta name="twitter:description" content="TargetGet all the titles and urls of my blogs. Design Firstly, the Crawler needs one controller(WebCrawler) to scheme the itself.The controller sends the root url to the urlManager.Then judges whether">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160724170353239">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.5.0',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    tabs: ,
+    motion: "",
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>My First Web Crawler | 围城个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">围城个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人丑就要多读书</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/11/My-First-Web-Crawler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="围城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="围城个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">My First Web Crawler</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/11/My-First-Web-Crawler/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/My-First-Web-Crawler/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h2><p>Get all the titles and urls of my blogs.</p>
+<h2 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h2><p><img src="http://img.blog.csdn.net/20160724170353239" alt="这里写图片描述"></p>
+<p>Firstly, the Crawler needs one controller(WebCrawler) to scheme the itself.The controller sends the root url to the urlManager.Then judges whether there is any url in the set.If the set is not empty, Crawler pops one from the set.Crawler downloads the web page of the given url, and sends the content to the parser.The parser returns what we what.If the set is not null, Crawler do what we have done before again.</p>
+<p>urlManager gets all list page by root url and add them to new_urls(set).If the controller pop one url, urlManager move the url from new_urls(set) to old_urls(set).Also urlManager has methods of has_new_url and get_new_url.</p>
+<p>htmlDownLoader download the web page of the given url.</p>
+<p>htmlParser help us to grab useful infomation.We should tell where the infomation is(locate by tabel and the label’s id, class and other attributes).At last the parser returns what we want on the page we given.</p>
+<p>Finally, the Crawler needs to present the result.Everytime when parser returns any datum, htmlOutputer adds them to its list.When all the urls in the set are used, htmlOutputer prints all the datum in one html file.We can open the file in Firefox and check the result.</p>
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><p><img src="http://img.blog.csdn.net/20160724170717688" alt="这里写图片描述"></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="WebCrawler-py"><a href="#WebCrawler-py" class="headerlink" title="WebCrawler.py"></a>WebCrawler.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding:utf8</span></div><div class="line"><span class="keyword">import</span> htmlDownLoader</div><div class="line"><span class="keyword">import</span> htmlOutputer</div><div class="line"><span class="keyword">import</span> htmlParser</div><div class="line"><span class="keyword">import</span> urlManager</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Controller</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.urls = urlManager.UrlManager()</div><div class="line">        self.downloader = htmlDownLoader.HtmlDownloader()</div><div class="line">        self.parser = htmlParser.HtmlParser()</div><div class="line">        self.outputer = htmlOutputer.HtmlOutputer()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">craw</span><span class="params">(self, root_url)</span>:</span></div><div class="line">        count = <span class="number">1</span></div><div class="line">        self.urls.add_new_urls(root_url)</div><div class="line">        <span class="keyword">while</span> self.urls.has_new_url():</div><div class="line">            <span class="keyword">try</span>:</div><div class="line">                new_url = self.urls.get_new_url()</div><div class="line">                <span class="keyword">print</span> <span class="string">"craw %d : %s"</span> % (count, new_url)</div><div class="line">                html_cont = self.downloader.download(new_url)</div><div class="line">                new_datum = self.parser.parse(new_url, html_cont)</div><div class="line">                self.outputer.collect_data(new_datum)</div><div class="line"></div><div class="line">                count += <span class="number">1</span></div><div class="line"></div><div class="line">            <span class="keyword">except</span>:</div><div class="line">                <span class="keyword">print</span> <span class="string">"craw failed : %s"</span> % (new_url)</div><div class="line"></div><div class="line">        self.outputer.output_html()</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ ==  <span class="string">"__main__"</span>:</div><div class="line">    root_url = <span class="string">"http://blog.callouweicheng.cn/"</span></div><div class="line">    obj_spider = Controller()</div><div class="line">    obj_spider.craw(root_url)</div></pre></td></tr></table></figure>
+<h3 id="urlManager-py"><a href="#urlManager-py" class="headerlink" title="urlManager.py"></a>urlManager.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding:utf8</span></div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"></div><div class="line"><span class="keyword">import</span> htmlDownLoader</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UrlManager</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.new_urls = set()</div><div class="line">        self.old_urls = set()</div><div class="line">        self.downloader = htmlDownLoader.HtmlDownloader()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_new_url</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> len(self.new_urls) != <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_url</span><span class="params">(self)</span>:</span></div><div class="line">        new_url = self.new_urls.pop()</div><div class="line">        self.old_urls.add(new_url)</div><div class="line">        <span class="keyword">return</span> new_url</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_urls</span><span class="params">(self, root_url)</span>:</span></div><div class="line">        <span class="keyword">if</span> root_url <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        html_cont = self.downloader.download(root_url)</div><div class="line">        <span class="keyword">if</span> html_cont <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        soup = BeautifulSoup(html_cont, <span class="string">"html.parser"</span>, from_encoding=<span class="string">"utf-8"</span>)</div><div class="line">        <span class="comment"># &lt;a class ="page-number" href="/page/2/"&gt; 2 &lt;/ a&gt;</span></div><div class="line">        nums = soup.find_all(<span class="string">"a"</span>, class_=<span class="string">"page-number"</span>)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</div><div class="line">            endNum = num.get_text()</div><div class="line"></div><div class="line">        self.new_urls.add(root_url)</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, int(endNum)+<span class="number">1</span>):</div><div class="line">            self.new_urls.add(<span class="string">"http://tonyzhang94.github.io/page/"</span>+str(i))</div></pre></td></tr></table></figure>
+<h3 id="htmlDownLoader-py"><a href="#htmlDownLoader-py" class="headerlink" title="htmlDownLoader.py"></a>htmlDownLoader.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding:utf8</span></div><div class="line"><span class="keyword">import</span> urllib2</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlDownloader</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(self, url)</span>:</span></div><div class="line">        <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">        response = urllib2.urlopen(url)</div><div class="line"></div><div class="line">        <span class="keyword">if</span> response.getcode() != <span class="number">200</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">        <span class="keyword">return</span> response.read()</div></pre></td></tr></table></figure>
+<h3 id="htmlParser-py"><a href="#htmlParser-py" class="headerlink" title="htmlParser.py"></a>htmlParser.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding:utf8</span></div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlParser</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, page_url, html_cont)</span>:</span></div><div class="line">        <span class="keyword">if</span> page_url <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> html_cont <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        soup = BeautifulSoup(html_cont, <span class="string">"html.parser"</span>, from_encoding = <span class="string">"utf-8"</span>)</div><div class="line">        new_data = self._get_new_data(page_url, soup)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> new_data</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_new_data</span><span class="params">(self, page_url, soup)</span>:</span></div><div class="line">        res_data = list()</div><div class="line"></div><div class="line">        <span class="comment"># &lt;a class="post-title-link" href="/2016/05/17/Generating-function-Implements：Credits-Combination/" itemprop="url"&gt;</span></div><div class="line">        <span class="comment"># Generating Function Implements：Credits Combination</span></div><div class="line">        <span class="comment"># &lt;/a&gt;</span></div><div class="line">        titles = soup.find_all(<span class="string">"a"</span>, class_=<span class="string">"post-title-link"</span>)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> title <span class="keyword">in</span> titles:</div><div class="line">            data = &#123;&#125;</div><div class="line">            data[<span class="string">"url"</span>] = <span class="string">"http://tonyzhang94.github.iotitle"</span> + title[<span class="string">"href"</span>]</div><div class="line">            data[<span class="string">"title"</span>] = title.get_text()</div><div class="line">            res_data.append(data)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> res_data</div></pre></td></tr></table></figure>
+<h3 id="htmlOutputer-py"><a href="#htmlOutputer-py" class="headerlink" title="htmlOutputer.py"></a>htmlOutputer.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding:utf8</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlOutputer</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.datas = []</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output_html</span><span class="params">(self)</span>:</span></div><div class="line">        fout = open(<span class="string">"output.html"</span>, <span class="string">"w"</span>)</div><div class="line"></div><div class="line">        fout.write(<span class="string">"&lt;html&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;body&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;table&gt;"</span>)</div><div class="line"></div><div class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> self.datas:</div><div class="line">            fout.write(<span class="string">"&lt;tr&gt;"</span>)</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">"url"</span>].encode(<span class="string">"utf-8"</span>))</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">"title"</span>].encode(<span class="string">"utf-8"</span>))</div><div class="line">            fout.write(<span class="string">"&lt;/tr&gt;"</span>)</div><div class="line"></div><div class="line">        fout.write(<span class="string">"&lt;/table&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/body&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/html&gt;"</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">collect_data</span><span class="params">(self, datum)</span>:</span></div><div class="line">        <span class="keyword">if</span> datum <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> datum:</div><div class="line">            self.datas.append(data)</div></pre></td></tr></table></figure>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Run WebCrawler in IDE（here is pycharm）<br><img src="http://img.blog.csdn.net/20160724170418044" alt="这里写图片描述"></p>
+<p>Open output.html in Firefox<br><img src="http://img.blog.csdn.net/20160724170448201" alt="这里写图片描述"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/17/Generating-Function-With-Constrains/" rel="next" title="Generating Function With Constrains">
+                <i class="fa fa-chevron-left"></i> Generating Function With Constrains
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/03/Big-Data-Is-Just-Frame/" rel="prev" title="Big Data Is Just Frame">
+                Big Data Is Just Frame <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/11/My-First-Web-Crawler/"
+           data-title="My First Web Crawler" data-url="http://yoursite.com/2016/07/11/My-First-Web-Crawler/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/uploads/portrait.jpg"
+              alt="围城" />
+          
+            <p class="site-author-name" itemprop="name">围城</p>
+            <p class="site-description motion-element" itemprop="description">Java|Python</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyZhang94" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-globe"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5321154334" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Target"><span class="nav-number">1.</span> <span class="nav-text">Target</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Design"><span class="nav-number">2.</span> <span class="nav-text">Design</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structure"><span class="nav-number">3.</span> <span class="nav-text">Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">4.</span> <span class="nav-text">Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WebCrawler-py"><span class="nav-number">4.1.</span> <span class="nav-text">WebCrawler.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#urlManager-py"><span class="nav-number">4.2.</span> <span class="nav-text">urlManager.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#htmlDownLoader-py"><span class="nav-number">4.3.</span> <span class="nav-text">htmlDownLoader.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#htmlParser-py"><span class="nav-number">4.4.</span> <span class="nav-text">htmlParser.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#htmlOutputer-py"><span class="nav-number">4.5.</span> <span class="nav-text">htmlOutputer.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">5.</span> <span class="nav-text">Output</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">围城</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"callouweicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

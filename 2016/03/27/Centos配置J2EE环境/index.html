@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Centos,mysql,JDK,Maven,Tomcat,环境配置," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="围城个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="步骤一：安装JDK12345678910111213141516# cd /usr/java # wget --no-check-certificate --no-cookies - --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; http://download.oracle.com/otn-pub/java/jdk/7u76">
+<meta name="keywords" content="Centos,mysql,JDK,Maven,Tomcat,环境配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos配置J2EE环境">
+<meta property="og:url" content="http://yoursite.com/2016/03/27/Centos配置J2EE环境/index.html">
+<meta property="og:site_name" content="围城个人博客">
+<meta property="og:description" content="步骤一：安装JDK12345678910111213141516# cd /usr/java # wget --no-check-certificate --no-cookies - --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; http://download.oracle.com/otn-pub/java/jdk/7u76">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20160406153708946">
+<meta property="og:updated_time" content="2017-09-22T04:44:53.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Centos配置J2EE环境">
+<meta name="twitter:description" content="步骤一：安装JDK12345678910111213141516# cd /usr/java # wget --no-check-certificate --no-cookies - --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; http://download.oracle.com/otn-pub/java/jdk/7u76">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160406153708946">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.5.0',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    tabs: ,
+    motion: "",
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>Centos配置J2EE环境 | 围城个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">围城个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人丑就要多读书</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/27/Centos配置J2EE环境/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="围城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="围城个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Centos配置J2EE环境</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/27/Centos配置J2EE环境/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/27/Centos配置J2EE环境/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="步骤一：安装JDK"><a href="#步骤一：安装JDK" class="headerlink" title="步骤一：安装JDK"></a>步骤一：安装JDK</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd /usr/java </span></div><div class="line"><span class="comment"># wget --no-check-certificate --no-cookies - --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u76-b13/jdk-7u76-linux-x64.rpm -O jdk-7u76-linux-x64.rpm </span></div><div class="line">[root@VM_49_244_centos java]<span class="comment"># rpm -ivh jdk-7u76-linux-x64.rpm</span></div><div class="line">Preparing...                <span class="comment">########################################### [100%]</span></div><div class="line">   1:jdk                    <span class="comment">########################################### [100%]</span></div><div class="line">Unpacking JAR files...</div><div class="line">        rt.jar...</div><div class="line">        jsse.jar...</div><div class="line">        charsets.jar...</div><div class="line">        tools.jar...</div><div class="line">        localedata.jar...</div><div class="line">        jfxrt.jar...</div><div class="line">[root@VM_49_244_centos java]<span class="comment"># java -version</span></div><div class="line">java version <span class="string">"1.7.0_76"</span></div><div class="line">Java(TM) SE Runtime Environment (build 1.7.0_76-b13)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)</div></pre></td></tr></table></figure>
+<h2 id="步骤二：设置默认JDK"><a href="#步骤二：设置默认JDK" class="headerlink" title="步骤二：设置默认JDK"></a>步骤二：设置默认JDK</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@VM_49_244_centos /]<span class="comment"># alternatives --install /usr/bin/java java /usr/java/default/bin/java 776</span></div><div class="line">[root@VM_49_244_centos /]<span class="comment"># alternatives --config java</span></div><div class="line"></div><div class="line">There is 1 program that provides <span class="string">'java'</span>.</div><div class="line"></div><div class="line">  Selection    Command</div><div class="line">-----------------------------------------------</div><div class="line">*+ 1           /usr/java/default/bin/java</div><div class="line"></div><div class="line">Enter to keep the current selection[+], or <span class="built_in">type</span> selection number: 1</div></pre></td></tr></table></figure>
+<h2 id="步骤三：设置环境变量"><a href="#步骤三：设置环境变量" class="headerlink" title="步骤三：设置环境变量"></a>步骤三：设置环境变量</h2><p>修改/etc/profile<br>在末尾加上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/default</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</div></pre></td></tr></table></figure></p>
+<h2 id="步骤四：测试JDK"><a href="#步骤四：测试JDK" class="headerlink" title="步骤四：测试JDK"></a>步骤四：测试JDK</h2><p>新建测试文件test.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">System.out.println(<span class="string">"hello world"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>测试<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@VM_49_244_centos]<span class="comment"># javac test.java</span></div><div class="line">[root@VM_49_244_centos]<span class="comment"># java test</span></div><div class="line">hello world</div></pre></td></tr></table></figure></p>
+<h2 id="步骤五：安装Maven"><a href="#步骤五：安装Maven" class="headerlink" title="步骤五：安装Maven"></a>步骤五：安装Maven</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd /usr/maven </span></div><div class="line"><span class="comment"># wget http://mirrors.cnnic.cn/apache/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.zip  </span></div><div class="line"><span class="comment"># unzip apache-maven-3.1.1-bin.zip  </span></div><div class="line"><span class="comment"># mv apache-maven-3.1.1/ /opt/maven  </span></div><div class="line"><span class="comment"># ln -s /opt/maven/bin/mvn /usr/bin/mvn</span></div></pre></td></tr></table></figure>
+<h2 id="步骤六：配置环境变量"><a href="#步骤六：配置环境变量" class="headerlink" title="步骤六：配置环境变量"></a>步骤六：配置环境变量</h2><p>编辑 /etc/profile<br>在尾部添加MAVEN_HOME,并在PATH中添加$MAVEN_HOME/bin<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$MAVEN_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> MAVEN_HOME=/opt/maven</div></pre></td></tr></table></figure></p>
+<h2 id="步骤七：测试Maven"><a href="#步骤七：测试Maven" class="headerlink" title="步骤七：测试Maven"></a>步骤七：测试Maven</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@VM_49_244_centos ~]<span class="comment"># mvn -v</span></div><div class="line">Apache Maven 3.1.1 (0728685237757ffbf44136acec0402957f723d9a; 2013-09-17 23:22:22+0800)</div><div class="line">Maven home: /opt/maven</div><div class="line">Java version: 1.7.0_76, vendor: Oracle Corporation</div><div class="line">Java home: /usr/java/jdk1.7.0_76/jre</div><div class="line">Default locale: en_US, platform encoding: ANSI_X3.4-1968</div><div class="line">OS name: <span class="string">"linux"</span>, version: <span class="string">"2.6.32-504.30.3.el6.x86_64"</span>, arch: <span class="string">"amd64"</span>, family: <span class="string">"unix"</span></div></pre></td></tr></table></figure>
+<h2 id="步骤八：配置mysql"><a href="#步骤八：配置mysql" class="headerlink" title="步骤八：配置mysql"></a>步骤八：配置mysql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum install -y mysql-server mysql mysql-deve</span></div></pre></td></tr></table></figure>
+<p>查看刚安装好的mysql-server的版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># rpm -qi mysql-server</span></div></pre></td></tr></table></figure></p>
+<h2 id="步骤九：安装Tomcat"><a href="#步骤九：安装Tomcat" class="headerlink" title="步骤九：安装Tomcat"></a>步骤九：安装Tomcat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#cd /usr/Tomcat</span></div><div class="line"><span class="comment"># wget http://http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.68/bin/apache-tomcat-7.0.68.zip</span></div></pre></td></tr></table></figure>
+<p>解压后启动Tomcat（__为Tomcat所在路径,本案例为/usr）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd __/Tomcat/apache-tomcat-7.0.68/bin/</span></div><div class="line"><span class="comment"># startup.sh</span></div></pre></td></tr></table></figure></p>
+<h2 id="步骤十：测试Tomcat"><a href="#步骤十：测试Tomcat" class="headerlink" title="步骤十：测试Tomcat"></a>步骤十：测试Tomcat</h2><p>访问 http:\ip:8080，如果出现以下界面则成功：<br><img src="http://img.blog.csdn.net/20160406153708946" alt="这里写图片描述"></p>
+<p><hr></p>
+<h2 id="其他事项"><a href="#其他事项" class="headerlink" title="其他事项"></a><centre>其他事项</centre></h2><p>事项一：开机自动开启tomcat<br>编辑 /etc/rc.d/rc.local<br>加入如下内容（__为Tomcat所在路径,本案例为/usr）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># __/Tomcat/apache-tomcat-7.0.68/bin/startup.sh</span></div><div class="line">```</div></pre></td></tr></table></figure></p>
+<p>事项二：开启SSLv3<br>进入java.security文件（__为java所在路径,本案例为/usr）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd __/java/default/jre/lib/security  </span></div><div class="line"><span class="comment"># vi java.security</span></div></pre></td></tr></table></figure></p>
+<p>在最后一行jdk.tls.disabledAlgorithms=SSLv3前加上“#”<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># jdk.tls.disabledAlgorithms=SSLv3</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Centos/" rel="tag"># Centos</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/JDK/" rel="tag"># JDK</a>
+          
+            <a href="/tags/Maven/" rel="tag"># Maven</a>
+          
+            <a href="/tags/Tomcat/" rel="tag"># Tomcat</a>
+          
+            <a href="/tags/环境配置/" rel="tag"># 环境配置</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/19/搜索策略学习笔记（6）：Strategy-of-Branch-Bound/" rel="next" title="搜索策略学习笔记（6）：Strategy of Branch & Bound">
+                <i class="fa fa-chevron-left"></i> 搜索策略学习笔记（6）：Strategy of Branch & Bound
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/25/Tragedy-of-Greedy-Algorithm/" rel="prev" title="Tragedy of Greedy Algorithm">
+                Tragedy of Greedy Algorithm <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/27/Centos配置J2EE环境/"
+           data-title="Centos配置J2EE环境" data-url="http://yoursite.com/2016/03/27/Centos配置J2EE环境/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/uploads/portrait.jpg"
+              alt="围城" />
+          
+            <p class="site-author-name" itemprop="name">围城</p>
+            <p class="site-description motion-element" itemprop="description">Java|Python</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyZhang94" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-globe"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5321154334" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤一：安装JDK"><span class="nav-number">1.</span> <span class="nav-text">步骤一：安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤二：设置默认JDK"><span class="nav-number">2.</span> <span class="nav-text">步骤二：设置默认JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤三：设置环境变量"><span class="nav-number">3.</span> <span class="nav-text">步骤三：设置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤四：测试JDK"><span class="nav-number">4.</span> <span class="nav-text">步骤四：测试JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤五：安装Maven"><span class="nav-number">5.</span> <span class="nav-text">步骤五：安装Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤六：配置环境变量"><span class="nav-number">6.</span> <span class="nav-text">步骤六：配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤七：测试Maven"><span class="nav-number">7.</span> <span class="nav-text">步骤七：测试Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤八：配置mysql"><span class="nav-number">8.</span> <span class="nav-text">步骤八：配置mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤九：安装Tomcat"><span class="nav-number">9.</span> <span class="nav-text">步骤九：安装Tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤十：测试Tomcat"><span class="nav-number">10.</span> <span class="nav-text">步骤十：测试Tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他事项"><span class="nav-number">11.</span> <span class="nav-text">其他事项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">围城</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"callouweicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

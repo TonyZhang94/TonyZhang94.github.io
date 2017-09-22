@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Big Data," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="围城个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="In contemporary society, big data is one of the hottest topics all over the world.I recommend a book named Big Data, writen by Viktor Mayer-Schonberger and Kenneth Cukier, that I have read several mon">
+<meta name="keywords" content="Big Data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Big Data Is Just Frame">
+<meta property="og:url" content="http://yoursite.com/2016/08/03/Big-Data-Is-Just-Frame/index.html">
+<meta property="og:site_name" content="围城个人博客">
+<meta property="og:description" content="In contemporary society, big data is one of the hottest topics all over the world.I recommend a book named Big Data, writen by Viktor Mayer-Schonberger and Kenneth Cukier, that I have read several mon">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20161004112147614">
+<meta property="og:image" content="http://img.blog.csdn.net/20161004112202130">
+<meta property="og:image" content="http://img.blog.csdn.net/20161004112212005">
+<meta property="og:updated_time" content="2017-09-22T04:44:53.725Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Big Data Is Just Frame">
+<meta name="twitter:description" content="In contemporary society, big data is one of the hottest topics all over the world.I recommend a book named Big Data, writen by Viktor Mayer-Schonberger and Kenneth Cukier, that I have read several mon">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161004112147614">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.5.0',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    tabs: ,
+    motion: "",
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>Big Data Is Just Frame | 围城个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">围城个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人丑就要多读书</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/03/Big-Data-Is-Just-Frame/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="围城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="围城个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Big Data Is Just Frame</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/03/Big-Data-Is-Just-Frame/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/Big-Data-Is-Just-Frame/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>In contemporary society, big data is one of the hottest topics all over the world.I recommend a book named Big Data, writen by Viktor Mayer-Schonberger and Kenneth Cukier, that I have read several months ago.As the authors reference in the book, big data is a revolution that will transform how we live, work and think, not so long as many people think big data is a new computer-involved technology.The latter is too narrow, even to a computer engineer.Distinguishing from traditional data, big data has three features.First of all, the datum we get are not based on sampling survey, insteading based on whole datum we can reach.Secondly, we have not to promise the datum in sample are completely correct any more.Last but not least, we pay more attention to the association among events and never obsess over the factors cause the association.Give an example, when we apply big data thoughts in medical treatment, instead of traditional sampling survey, we needn’t to check millions or billions of datum and correct all the false datum or try to fill every blank attributes.We sacrifice some accuracy and exchange for an expansion of sample in orders of magnitude.Basing on the size of sample, we are able to abandon the method that we used called supervised learning and replace it by probability statistics, which will help us to find much more valuable association that seemingly have nothing to do with each other.On the other hand, when we divide a sample, which has ten billion datum, by ten attributes and each attribute has ten different possible values.We can easily get that, the average number of each sample interval is ten.It is ridiculous to draw a conclusion basing on a sample with such tiny size because the size is absolutely unrepresentative.What’s more, the preference of investigators will influence the component of sample in some way.</p>
+<p>When it simply comes to computer science, big data is also not one technique.It is a frame, which needs many techniques to support, and we would achieve different value when we fill the frame with different material.Here are some skills that a big data engineer must master. </p>
+<h3 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h3><p>1    MSE(Mean Square Error)<br>2    LMS(Least Mean Square)<br>3    LSM(Least Square Methods)<br>4    MLE(MaximumLikelihood Estimation)<br>5    QP(Quadratic Programming)<br>6    CP(Conditional Probability)<br>7    JP(Joint Probability)<br>8    MP(Marginal Probability)<br>9    Bayesian Formula<br>10    L1 /L2Regularization<br>11    GD(GradientDescent)<br>12    SGD(Stochastic Gradient Descent)<br>13    Eigenvalue<br>14    Eigenvector<br>15    QR-decomposition<br>16    Quantile<br>17    Covariance<br>18    Matrix Calculation    </p>
+<h3 id="Discrete-Distribution"><a href="#Discrete-Distribution" class="headerlink" title="Discrete Distribution"></a>Discrete Distribution</h3><p>19    BernoulliDistribution/Binomial<br>20    Negative BinomialDistribution<br>21    MultinomialDistribution<br>22    Geometric Distribution<br>23    HypergeometricDistribution<br>24    Poisson Distribution</p>
+<h3 id="Continuous-Distribution"><a href="#Continuous-Distribution" class="headerlink" title="Continuous Distribution"></a>Continuous Distribution</h3><p>25    UniformDistribution<br>26    Normal Distribution /Guassian Distribution<br>27    ExponentialDistribution<br>28    Lognormal Distribution<br>29    Gamma Distribution<br>30    Beta Distribution<br>31    Dirichlet Distribution<br>32    Rayleigh Distribution<br>33    Cauchy Distribution<br>34    Weibull Distribution</p>
+<h3 id="Three-Sampling-Distribution"><a href="#Three-Sampling-Distribution" class="headerlink" title="Three Sampling Distribution"></a>Three Sampling Distribution</h3><p>35    Chi-square Distribution<br>36    t-distribution<br>37    F-distribution</p>
+<h3 id="Data-Pre-processing"><a href="#Data-Pre-processing" class="headerlink" title="Data Pre-processing"></a>Data Pre-processing</h3><p>39    Missing Value Imputation<br>40    Discretization Mapping<br>41    Normalization</p>
+<h3 id="Sampling"><a href="#Sampling" class="headerlink" title="Sampling"></a>Sampling</h3><p>42    Simple Random Sampling<br>43    OfflineSampling<br>44    Online Sampling<br>45    Ratio-based Sampling<br>46    Acceptance-RejectionSampling<br>47    Importance Sampling<br>48    MCMC(MarkovChain Monte Carlo：Metropolis-Hasting&amp; Gibbs)    </p>
+<h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><p>49    Lagrange mutipliers<br>50    Non-constrainedOptimization<br>51    Cyclic VariableMethods<br>52    Pattern Search Methods<br>53    VariableSimplex Methods<br>54    Gradient Descent Methods<br>55    Newton Methods<br>56    Quasi-NewtonMethods<br>57    Conjugate Gradient Methods</p>
+<h3 id="ConstrainedOptimization"><a href="#ConstrainedOptimization" class="headerlink" title="ConstrainedOptimization"></a>ConstrainedOptimization</h3><p>58    Approximation Programming Methods<br>59    FeasibleDirection Methods<br>60    Penalty Function Methods<br>61    Multiplier Methods<br>62    Heuristic Algorithm<br>63    SA(SimulatedAnnealing)<br>64    GA(genetic algorithm)</p>
+<h3 id="Similarity-Measure-amp-Distance-Measure"><a href="#Similarity-Measure-amp-Distance-Measure" class="headerlink" title="Similarity Measure&amp;Distance Measure"></a>Similarity Measure&amp;Distance Measure</h3><p>65    Euclidean Distance<br>66    ManhattanDistance<br>67    Chebyshev Distance<br>68    MinkowskiDistance<br>69    Standardized Euclidean Distance<br>70    MahalanobisDistance<br>71    Cos(Cosine)<br>72    HammingDistance/Edit Distance<br>73    JaccardDistance<br>74    Correlation Coefficient Distance<br>75    InformationEntropy<br>76    KL(Kullback-Leibler Divergence/Relative Entropy)    </p>
+<h3 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h3><p>77    Stack、Queue、List<br>78    Hash Table<br>79    Binary Tree、Red Black Tree、B Tree<br>80    Graph</p>
+<h3 id="Common-Algorithm"><a href="#Common-Algorithm" class="headerlink" title="Common Algorithm"></a>Common Algorithm</h3><p>81    Sort<br>82    Maximum Sub Array<br>83    Maximum Common Sub Sequence<br>84    Minimal Spanning Tree<br>85    Shortest Path<br>86    The Storage And Computation Of Matrix</p>
+<h3 id="Consistency-Algorithm-Distributed-Theory"><a href="#Consistency-Algorithm-Distributed-Theory" class="headerlink" title="Consistency Algorithm (Distributed Theory)"></a>Consistency Algorithm (Distributed Theory)</h3><p>87    Paxos<br>88    Raft<br>89    Gossip</p>
+<h3 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a>Clustering</h3><p>90    K-Means<br>91    K-Mediods<br>92    Binary K-Means    2<br>93    FK-Means<br>94    Canopy<br>95    Spectral-KMeans<br>96    GMM-EM<br>97    K-PototypesCLARANS<br>98    BIRCH<br>99    CURE<br>100    DBSCAN<br>101    CLIQUE</p>
+<h3 id="Classification-amp-Regression"><a href="#Classification-amp-Regression" class="headerlink" title="Classification&amp;Regression"></a>Classification&amp;Regression</h3><p>102    LR(Linear Regression)<br>103    LR(LogisticRegression)<br>104    SR(Softmax Regression)<br>105    GLM(GeneralizedLinear Model)<br>106    RR(Ridge Regression)<br>107    LASSO(Least Absolute Shrinkage andSelectionator Operator)<br>108    RF<br>109    DT(DecisionTree)<br>110    GBDT(Gradient BoostingDecision Tree)<br>111    CART(ClassificationAnd Regression Tree)<br>112    KNN(K-Nearest Neighbor)<br>113    SVM(Support VectorMachine)<br>114    KF Kernel Function/PolynomialKernel Function<br>115    Guassian KernelFunction/Radial BasisFunction RBF<br>116    String KernelFunction<br>117    NB(Naive Bayes)BN(Bayesian Network/Bayesian Belief Network/ Belief Network)<br>118    LDA(Linear Discriminant Analysis/FisherLinear Discriminant)<br>119    EL(Ensemble Learning BoostingBaggingStacking)<br>120    AdaBoost(Adaptive Boosting)<br>121    MEM(MaximumEntropy Model)</p>
+<h3 id="Effectiveness-Evaluation"><a href="#Effectiveness-Evaluation" class="headerlink" title="Effectiveness Evaluation"></a>Effectiveness Evaluation</h3><p>122    Confusion Matrix<br>123    Precision Recall<br>124    Accuracy F-score<br>125    ROC Curve AUC<br>126    LiftCurve KS Curve</p>
+<h3 id="PGM-Probabilistic-Graphical-Models"><a href="#PGM-Probabilistic-Graphical-Models" class="headerlink" title="PGM(Probabilistic Graphical Models)"></a>PGM(Probabilistic Graphical Models)</h3><p>127    BN(Bayesian Network/Bayesian Belief Network/ BeliefNetwork)<br>128    MC(Markov Chain)<br>129    HMM(HiddenMarkov Model)<br>130    MEMM(Maximum Entropy Markov Model)<br>131    CRF(ConditionalRandom Field)<br>132    MRF(MarkovRandom Field)</p>
+<h3 id="NN-Neural-Network"><a href="#NN-Neural-Network" class="headerlink" title="NN(Neural Network)"></a>NN(Neural Network)</h3><p>133 ANN(Artificial Neural Network)<br>134    BP(Error BackPropagation)</p>
+<h3 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h3><p>135    Auto-encoder<br>136    SAE(Stacked Auto-encoders)<br>137    Sparse Auto-encoders<br>138    Denoising Auto-encoders<br>139    Contractive Auto-encoders<br>140    RBM(RestrictedBoltzmann Machine)<br>141    DBN(Deep Belief Network)<br>142    CNN(ConvolutionalNeural Network)<br>143    Word2Vec</p>
+<h3 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h3><p>144    LDA LinearDiscriminant Analysis/Fisher Linear Discriminant/Fisher<br>145    PCA(Principal Component Analysis)<br>146    ICA(IndependentComponent Analysis)<br>147    SVD(Singular Value Decomposition)<br>148    FA(FactorAnalysis)</p>
+<h3 id="Text-Mining"><a href="#Text-Mining" class="headerlink" title="Text Mining"></a>Text Mining</h3><p>149    VSM(Vector Space Model)<br>150    Word2Vec<br>151    TF(Term Frequency)<br>152    TF-IDF(Term Frequency-Inverse DocumentFrequency)<br>153    MI(MutualInformation)<br>154    ECE(Expected Cross Entropy)<br>155    QEMI<br>156    IG(InformationGain)<br>157    IGR(Information Gain Ratio)<br>158    Gini<br>159    x2 Statistic<br>160    TEW(TextEvidence Weight)<br>161    OR(Odds Ratio)<br>162    N-Gram Model    3<br>163    LSA(Latent Semantic Analysis)<br>164    PLSA(ProbabilisticLatent Semantic Analysis)<br>165    LDA(Latent DirichletAllocation)</p>
+<h3 id="Association-Mining"><a href="#Association-Mining" class="headerlink" title="Association Mining"></a>Association Mining</h3><p>166    Apriori<br>167    FP-growth(Frequency Pattern Tree Growth)<br>168    AprioriAll<br>169    Spade</p>
+<h3 id="Recommendation-Engine"><a href="#Recommendation-Engine" class="headerlink" title="Recommendation Engine"></a>Recommendation Engine</h3><p>170    DBR(Demographic-based Recommendation)<br>171    CBR(Context-basedRecommendation)<br>172    CF(Collaborative Filtering)<br>173    UCF(User-basedCollaborative Filtering Recommendation)<br>174    ICF(Item-basedCollaborative Filtering Recommendation)</p>
+<h3 id="Feature-Selection"><a href="#Feature-Selection" class="headerlink" title="Feature Selection"></a>Feature Selection</h3><p>175    Mutual Information<br>176    DocumentFrequence<br>177    Information Gain<br>178    Chi-squared Test<br>179    Gini    </p>
+<h3 id="Outlier-Detection"><a href="#Outlier-Detection" class="headerlink" title="Outlier Detection"></a>Outlier Detection</h3><p>180    Statistic-based<br>181    Distance-based<br>182    Density-based<br>183    Clustering-based</p>
+<h3 id="Learning-to-Rank"><a href="#Learning-to-Rank" class="headerlink" title="Learning to Rank"></a>Learning to Rank</h3><p>184 Pointwise：McRank<br>185    Pairwise：RankingSVM，RankNet，Frank，RankBoost<br>186    Listwise：AdaRank，SoftRank，LamdaMART        </p>
+<h3 id="Tool"><a href="#Tool" class="headerlink" title="Tool"></a>Tool</h3><p>187    Matlab<br>188    TensorFlow<br>189    Spark Mllib        </p>
+<h3 id="Processing-Platform"><a href="#Processing-Platform" class="headerlink" title="Processing Platform"></a>Processing Platform</h3><p>190    Hadoop<br>191    Spark<br>192    Weka<br>193    Flink</p>
+<h3 id="Data-Warehouse-And-Data-Analysis-SQL"><a href="#Data-Warehouse-And-Data-Analysis-SQL" class="headerlink" title="Data Warehouse And Data Analysis (SQL)"></a>Data Warehouse And Data Analysis (SQL)</h3><p>194    Pig<br>195    Hive<br>196    Spark SQL<br>197    ElasticSearch</p>
+<h3 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h3><p>198    Kafka</p>
+<h3 id="Stream-Computing"><a href="#Stream-Computing" class="headerlink" title="Stream Computing"></a>Stream Computing</h3><p>199    Storm<br>200    Spark Streaming</p>
+<h3 id="Programming-Language"><a href="#Programming-Language" class="headerlink" title="Programming Language"></a>Programming Language</h3><p>201    Java<br>202    Python<br>203    R</p>
+<h3 id="Data-Visualization"><a href="#Data-Visualization" class="headerlink" title="Data Visualization"></a>Data Visualization</h3><p>204 D3.js</p>
+<p>Here is one system structure diagram that I think will help reader to understand the big data frame.<br><img src="http://img.blog.csdn.net/20161004112147614" alt="这里写图片描述"><img src="http://img.blog.csdn.net/20161004112202130" alt="这里写图片描述"><img src="http://img.blog.csdn.net/20161004112212005" alt="这里写图片描述"></p>
+<p>Email me if you want the orginal diagram.(callouweicheng@gmail.com)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Big-Data/" rel="tag"># Big Data</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/11/My-First-Web-Crawler/" rel="next" title="My First Web Crawler">
+                <i class="fa fa-chevron-left"></i> My First Web Crawler
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/30/艰辛的保研之路/" rel="prev" title="艰辛的保研之路">
+                艰辛的保研之路 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/03/Big-Data-Is-Just-Frame/"
+           data-title="Big Data Is Just Frame" data-url="http://yoursite.com/2016/08/03/Big-Data-Is-Just-Frame/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/uploads/portrait.jpg"
+              alt="围城" />
+          
+            <p class="site-author-name" itemprop="name">围城</p>
+            <p class="site-description motion-element" itemprop="description">Java|Python</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyZhang94" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-globe"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5321154334" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discrete-Distribution"><span class="nav-number">2.</span> <span class="nav-text">Discrete Distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Continuous-Distribution"><span class="nav-number">3.</span> <span class="nav-text">Continuous Distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Three-Sampling-Distribution"><span class="nav-number">4.</span> <span class="nav-text">Three Sampling Distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Pre-processing"><span class="nav-number">5.</span> <span class="nav-text">Data Pre-processing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sampling"><span class="nav-number">6.</span> <span class="nav-text">Sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization"><span class="nav-number">7.</span> <span class="nav-text">Optimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConstrainedOptimization"><span class="nav-number">8.</span> <span class="nav-text">ConstrainedOptimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Similarity-Measure-amp-Distance-Measure"><span class="nav-number">9.</span> <span class="nav-text">Similarity Measure&Distance Measure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Structure"><span class="nav-number">10.</span> <span class="nav-text">Data Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-Algorithm"><span class="nav-number">11.</span> <span class="nav-text">Common Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Consistency-Algorithm-Distributed-Theory"><span class="nav-number">12.</span> <span class="nav-text">Consistency Algorithm (Distributed Theory)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clustering"><span class="nav-number">13.</span> <span class="nav-text">Clustering</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification-amp-Regression"><span class="nav-number">14.</span> <span class="nav-text">Classification&Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Effectiveness-Evaluation"><span class="nav-number">15.</span> <span class="nav-text">Effectiveness Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PGM-Probabilistic-Graphical-Models"><span class="nav-number">16.</span> <span class="nav-text">PGM(Probabilistic Graphical Models)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NN-Neural-Network"><span class="nav-number">17.</span> <span class="nav-text">NN(Neural Network)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">18.</span> <span class="nav-text">Deep Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dimensionality-Reduction"><span class="nav-number">19.</span> <span class="nav-text">Dimensionality Reduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Text-Mining"><span class="nav-number">20.</span> <span class="nav-text">Text Mining</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Association-Mining"><span class="nav-number">21.</span> <span class="nav-text">Association Mining</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recommendation-Engine"><span class="nav-number">22.</span> <span class="nav-text">Recommendation Engine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature-Selection"><span class="nav-number">23.</span> <span class="nav-text">Feature Selection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Outlier-Detection"><span class="nav-number">24.</span> <span class="nav-text">Outlier Detection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning-to-Rank"><span class="nav-number">25.</span> <span class="nav-text">Learning to Rank</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tool"><span class="nav-number">26.</span> <span class="nav-text">Tool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Processing-Platform"><span class="nav-number">27.</span> <span class="nav-text">Processing Platform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Warehouse-And-Data-Analysis-SQL"><span class="nav-number">28.</span> <span class="nav-text">Data Warehouse And Data Analysis (SQL)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Message-Queue"><span class="nav-number">29.</span> <span class="nav-text">Message Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream-Computing"><span class="nav-number">30.</span> <span class="nav-text">Stream Computing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Programming-Language"><span class="nav-number">31.</span> <span class="nav-text">Programming Language</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Visualization"><span class="nav-number">32.</span> <span class="nav-text">Data Visualization</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">围城</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"callouweicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

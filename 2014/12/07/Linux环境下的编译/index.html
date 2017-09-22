@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,Compile,C & C++,Lex,Yacc,Language-Training," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="围城个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="在Linux环境下编译曾经遇到过一些问题，在这里做一点小小的总结   C与C++基础编译指令1cc -o demo demo.c 运行指令12./demo./demo&amp;lt; txt 1.编译.c文件时，如果使用了math.h里的函数，则需要在编译命令结尾加-lm1cc -o demo demo.c -lm 2.编译.c文件时，如果使用bool类型变量，则要使用g++编译器1g++ -o demo">
+<meta name="keywords" content="Linux,Compile,C &amp; C++,Lex,Yacc,Language-Training">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux环境下的一些编译问题">
+<meta property="og:url" content="http://yoursite.com/2014/12/07/Linux环境下的编译/index.html">
+<meta property="og:site_name" content="围城个人博客">
+<meta property="og:description" content="在Linux环境下编译曾经遇到过一些问题，在这里做一点小小的总结   C与C++基础编译指令1cc -o demo demo.c 运行指令12./demo./demo&amp;lt; txt 1.编译.c文件时，如果使用了math.h里的函数，则需要在编译命令结尾加-lm1cc -o demo demo.c -lm 2.编译.c文件时，如果使用bool类型变量，则要使用g++编译器1g++ -o demo">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-22T04:44:50.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux环境下的一些编译问题">
+<meta name="twitter:description" content="在Linux环境下编译曾经遇到过一些问题，在这里做一点小小的总结   C与C++基础编译指令1cc -o demo demo.c 运行指令12./demo./demo&amp;lt; txt 1.编译.c文件时，如果使用了math.h里的函数，则需要在编译命令结尾加-lm1cc -o demo demo.c -lm 2.编译.c文件时，如果使用bool类型变量，则要使用g++编译器1g++ -o demo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.5.0',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    tabs: ,
+    motion: "",
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>Linux环境下的一些编译问题 | 围城个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">围城个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人丑就要多读书</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/12/07/Linux环境下的编译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="围城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="围城个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux环境下的一些编译问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/12/07/Linux环境下的编译/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/07/Linux环境下的编译/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>在Linux环境下编译曾经遇到过一些问题，在这里做一点小小的总结</em></p>
+<hr>
+<p><br></p>
+<h2 id="C与C"><a href="#C与C" class="headerlink" title="C与C++"></a>C与C++</h2><p>基础编译指令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cc -o demo demo.c</div></pre></td></tr></table></figure></p>
+<p>运行指令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./demo</div><div class="line">./demo&lt; txt</div></pre></td></tr></table></figure></p>
+<p>1.编译.c文件时，如果使用了math.h里的函数，则需要在编译命令结尾加-lm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cc -o demo demo.c -lm</div></pre></td></tr></table></figure></p>
+<p>2.编译.c文件时，如果使用bool类型变量，则要使用g++编译器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g++ -o demo demo.c</div></pre></td></tr></table></figure></p>
+<p>3.编译.c++文件时，使用g++编译器，gcc没有用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g++ -o demo demo.c</div></pre></td></tr></table></figure></p>
+<p> <br><br></p>
+<hr>
+<h2 id="Lex"><a href="#Lex" class="headerlink" title="Lex"></a>Lex</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">lex –o demo.c demo.l</div><div class="line">gcc –ll demo.c –o demo</div><div class="line">./demo</div></pre></td></tr></table></figure>
+<p>如果编译时报错：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">lex.yy.c: undefined reference to `yywrap<span class="string">'</span></div><div class="line"><span class="string">```</span></div></pre></td></tr></table></figure></p>
+<p>那么在.l文件结尾添加<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">yywrap</span><span class="params">()</span> </span>&#123;   </div><div class="line">	<span class="keyword">return</span>(<span class="number">1</span>)； </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>即可<br> <br><br></p>
+<hr>
+<h2 id="Yacc"><a href="#Yacc" class="headerlink" title="Yacc"></a>Yacc</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yacc –d t.y</div><div class="line">gcc t.tab.c -ly -ll</div></pre></td></tr></table></figure>
+<p>编译时可能会遇到如未定义指令或者找不到某类文件，这时只要去下载或者移动一些usr里的文件。这里情况比较多，大家可以去根据自己遇到的情况去网上找答案，网上的教程很多。</p>
+<p> <br><br></p>
+<hr>
+<h2 id="语言库训练"><a href="#语言库训练" class="headerlink" title="语言库训练"></a>语言库训练</h2><p>训练样本大家可随意选择，这里我载给大家推荐一个网站，可以在这里下载训练的样本<br><a href="https://www.wsatmt.org/europarl/" target="_blank" rel="external">https://www.wsatmt.org/europarl/</a><br>srilm可以到网上去搜索<br><br><br>(需要对..\srilm-1.7.1\visual_studio中的文件先进行编译，对于不同的计算机可能不出现不同的编译错误，导致..\srilm-1.7.1\bin\Debug中文件缺失，有些确实是不影响的，有些则会导致之后的编译报错）</p>
+<p>操作步骤：</p>
+<p>1.进入srilm文件夹..\sriml<br>2.再进入..\srilm-1.7.1\bin\Debug<br>3.依次输入命令<br>-词频统计<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngram-count -text europarl-v7.es-en.en -order 3 -write file.count</div></pre></td></tr></table></figure></p>
+<p>-模型训练<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngram-count -<span class="built_in">read</span> file.count -order 3 -lm file.lm  -interpolate -kndiscount</div></pre></td></tr></table></figure></p>
+<p>-测试（困惑度计算）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ngram -ppl testfile.txt -order 3 -lm file.lm -debug 2 &gt; file.ppl</div></pre></td></tr></table></figure></p>
+<p> <br><br></p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Compile/" rel="tag"># Compile</a>
+          
+            <a href="/tags/C-C/" rel="tag"># C & C++</a>
+          
+            <a href="/tags/Lex/" rel="tag"># Lex</a>
+          
+            <a href="/tags/Yacc/" rel="tag"># Yacc</a>
+          
+            <a href="/tags/Language-Training/" rel="tag"># Language-Training</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/06/14/关于vim的一些基本配置/" rel="next" title="关于vim的一些基本配置">
+                <i class="fa fa-chevron-left"></i> 关于vim的一些基本配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/31/Coryphaei/" rel="prev" title="Coryphaei">
+                Coryphaei <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/12/07/Linux环境下的编译/"
+           data-title="Linux环境下的一些编译问题" data-url="http://yoursite.com/2014/12/07/Linux环境下的编译/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/uploads/portrait.jpg"
+              alt="围城" />
+          
+            <p class="site-author-name" itemprop="name">围城</p>
+            <p class="site-description motion-element" itemprop="description">Java|Python</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyZhang94" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-globe"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5321154334" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C与C"><span class="nav-number">1.</span> <span class="nav-text">C与C++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lex"><span class="nav-number">2.</span> <span class="nav-text">Lex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yacc"><span class="nav-number">3.</span> <span class="nav-text">Yacc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言库训练"><span class="nav-number">4.</span> <span class="nav-text">语言库训练</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">围城</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"callouweicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

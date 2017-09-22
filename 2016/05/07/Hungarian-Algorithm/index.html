@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Bipartite Graph,Maximum Matching,Hungarian Algorithm," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="围城个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Basic KnowledgeVertex CoveringVertex Covering：A vertex set and every edge has more one terminal in the set.Minimal Vertex Covering：A vertex covering and its any proper subset isn’t a vertex covering.M">
+<meta name="keywords" content="Bipartite Graph,Maximum Matching,Hungarian Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Properties of Bipartite Graph">
+<meta property="og:url" content="http://yoursite.com/2016/05/07/Hungarian-Algorithm/index.html">
+<meta property="og:site_name" content="围城个人博客">
+<meta property="og:description" content="Basic KnowledgeVertex CoveringVertex Covering：A vertex set and every edge has more one terminal in the set.Minimal Vertex Covering：A vertex covering and its any proper subset isn’t a vertex covering.M">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-22T04:44:50.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Properties of Bipartite Graph">
+<meta name="twitter:description" content="Basic KnowledgeVertex CoveringVertex Covering：A vertex set and every edge has more one terminal in the set.Minimal Vertex Covering：A vertex covering and its any proper subset isn’t a vertex covering.M">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.5.0',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    tabs: ,
+    motion: "",
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>Properties of Bipartite Graph | 围城个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">围城个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人丑就要多读书</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/07/Hungarian-Algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="围城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="围城个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Properties of Bipartite Graph</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/05/07/Hungarian-Algorithm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/Hungarian-Algorithm/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h2><h3 id="Vertex-Covering"><a href="#Vertex-Covering" class="headerlink" title="Vertex Covering"></a>Vertex Covering</h3><p><strong>Vertex Covering：</strong><br>A vertex set and every edge has more one terminal in the set.<br><strong>Minimal Vertex Covering：</strong><br>A vertex covering and its any proper subset isn’t a vertex covering.<br><strong>Minimum Vertex Covering：</strong><br>A vertex covering who has the minimum vertex.<br><strong>Vertex Covering Number：</strong><br>The number of vertexs in the minimum vertex covering.</p>
+<h3 id="Edge-Covering"><a href="#Edge-Covering" class="headerlink" title="Edge Covering"></a>Edge Covering</h3><p><strong>Edge Covering：</strong><br>An edge set and every vertex is adjacent to the edge in the set.<br><strong>Minimal Edge Covering：</strong><br>An edge covering and its any proper subset isn’t a edge covering.<br><strong>Minimum Edge Covering：</strong><br>An edge coving who has the minimum edge.<br><strong>Edge Covering Number：</strong><br>The number of edges in the minimun edge coving.</p>
+<h3 id="Independent-Set"><a href="#Independent-Set" class="headerlink" title="Independent Set"></a>Independent Set</h3><p><strong>Independent Set：</strong><br>A vertex set and every vertex in the set isn’t adjacent to any other vertex in the set.<br><strong>Maximal Independent Set：</strong><br>An independent set and the set is no longer an independent set when adding any vertex to it.<br><strong>Maximum Independent Set：</strong><br>An independent set who has the maximum vertex.<br><strong>Vertex Independent Set：</strong><br>The number of vertexs in the maximum independent set.</p>
+<p><strong>Independent set can also be define as a vertex set of a derived subgraph who’s a zero diagram.</strong></p>
+<h3 id="Clique"><a href="#Clique" class="headerlink" title="Clique"></a>Clique</h3><p><strong>Clique：</strong><br>A vertex set and every vertex in the set is adjacent to any other vertex in the set.<br><strong>Maximal Clique：</strong><br>A clique and the set is no longer a clique when adding any vertex to it.<br><strong>Maximum Clique：</strong><br>A clique who has the maximum vertex.<br><strong>Clique Number：</strong><br>The number of vertexs in the maximum independent set.</p>
+<p><strong>Clique can also be define as a vertex set of a derived subgraph who’s a complete graph.</strong></p>
+<h3 id="Edge-Independent-Set"><a href="#Edge-Independent-Set" class="headerlink" title="Edge Independent Set"></a>Edge Independent Set</h3><p><strong>Edge Independent Set：</strong><br>An edge set and every edge in the set isn’t adjacent to any other edge in the set.<br><strong>Maximal Edge Independent Set：</strong><br>An edge independent set and the set is no longer an edge independent set when adding any edge to it.<br><strong>Maximum Edge Independent Set：</strong><br>An edge independent who has the maximum edge.<br><strong>Edge Independent Set Covering Number：</strong><br>The number of edges in the maximum edge independent set.</p>
+<p><strong>Edge independent set also called matching， corresponding concepts have maximal matching， maximum matching， matching number.</strong></p>
+<h3 id="Dominating-Set"><a href="#Dominating-Set" class="headerlink" title="Dominating Set"></a>Dominating Set</h3><p><strong>Dominating Set：</strong><br>A vertex set and any vertex isn’t in the set has more one adjacent vertex in the set.<br><strong>Minimal Dominating Set：</strong><br>A dominating set and it’s any proper subset isn’t a dominating set.<br><strong>Minimum Dominating Set：</strong><br>A dominating set who has the minimum vertex.<br><strong>Dominating Number：</strong><br>The number of vertexs in the minimum dominating set.</p>
+<h3 id="Edge-Dominating-Set"><a href="#Edge-Dominating-Set" class="headerlink" title="Edge Dominating Set"></a>Edge Dominating Set</h3><p><strong>Edge Dominating Set：</strong><br>An egde set and any edge isn’t in the set has more one adjacent edge in the set.<br><strong>Minimal Edge Dominating Set：</strong><br>An edge dominating set and it’s any proper subset isn’t an edge dominating set.<br><strong>Minimum Edge Dominating Set：</strong><br>An edge dominating set who has the minimum edge.<br><strong>Edge Dominating Number：</strong><br>The number of edges in the minimum edge dominating set.</p>
+<h3 id="Path-Covering"><a href="#Path-Covering" class="headerlink" title="Path Covering"></a>Path Covering</h3><p>Using minimum disjoint edges to cover all the vertexs in the graph.<br>path covering number = vertexs - edges in path covering</p>
+<h2 id="Bipartite-Graph"><a href="#Bipartite-Graph" class="headerlink" title="Bipartite Graph"></a>Bipartite Graph</h2><p>A bipartite graph is a graph whose vertices can be divided into two disjoint sets U and V such that every edge connects a vertex in U to one in V. </p>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>In a bipartite graph：</p>
+<p><strong>Property One：</strong><br>minimum vertex covering = maximum matching</p>
+<p><strong>Property Two：</strong><br>minimum path coverage of DAG = vertexs - maximum matching</p>
+<p><strong>Property Three：</strong><br>maximum independent set = vertexs - maximum matching</p>
+<p><strong>Property Four：</strong><br>maximum matching = matching vertexs in left set + unmatching vertexs in right set</p>
+<p><strong>Property Five：</strong><br>minimum edge covering = maximum independent set</p>
+<h2 id="Hungarian-Algorithm"><a href="#Hungarian-Algorithm" class="headerlink" title="Hungarian Algorithm"></a>Hungarian Algorithm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">// Module</div><div class="line"></div><div class="line">int find(int x) &#123;</div><div class="line">	int i;</div><div class="line">	for (i = 1;i &lt;= m;i++) &#123;</div><div class="line">		if (bond[x][i] == 1 &amp;&amp; march[i] == -1) &#123;</div><div class="line">			march[i] = 1;</div><div class="line">			if (vis[i] == -1 || find(vis[i]) == 1) &#123;</div><div class="line">				vis[i] = x;</div><div class="line">				return 1;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">	...</div><div class="line">	...</div><div class="line">		</div><div class="line">	memset(vis, -1, sizeof(vis));</div><div class="line">	// Init bond</div><div class="line"></div><div class="line">	for (i = 1;i &lt;= n;i++) &#123;</div><div class="line">		for (j = 0;j &lt; MAX;j++)</div><div class="line">			march[j] = -1;</div><div class="line"></div><div class="line">		if (find(i) == 1) &#123;</div><div class="line">			cnt++;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bipartite-Graph/" rel="tag"># Bipartite Graph</a>
+          
+            <a href="/tags/Maximum-Matching/" rel="tag"># Maximum Matching</a>
+          
+            <a href="/tags/Hungarian-Algorithm/" rel="tag"># Hungarian Algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/07/Bipartite-Graph-Maximum-Matching/" rel="next" title="Bipartite Graph Maximum Matching">
+                <i class="fa fa-chevron-left"></i> Bipartite Graph Maximum Matching
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/07/Maximum-Independent-Set/" rel="prev" title="Maximum Independent Set">
+                Maximum Independent Set <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/Hungarian-Algorithm/"
+           data-title="Properties of Bipartite Graph" data-url="http://yoursite.com/2016/05/07/Hungarian-Algorithm/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/uploads/portrait.jpg"
+              alt="围城" />
+          
+            <p class="site-author-name" itemprop="name">围城</p>
+            <p class="site-description motion-element" itemprop="description">Java|Python</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyZhang94" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-globe"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5321154334" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vertex-Covering"><span class="nav-number">1.1.</span> <span class="nav-text">Vertex Covering</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edge-Covering"><span class="nav-number">1.2.</span> <span class="nav-text">Edge Covering</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Independent-Set"><span class="nav-number">1.3.</span> <span class="nav-text">Independent Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clique"><span class="nav-number">1.4.</span> <span class="nav-text">Clique</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edge-Independent-Set"><span class="nav-number">1.5.</span> <span class="nav-text">Edge Independent Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dominating-Set"><span class="nav-number">1.6.</span> <span class="nav-text">Dominating Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edge-Dominating-Set"><span class="nav-number">1.7.</span> <span class="nav-text">Edge Dominating Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-Covering"><span class="nav-number">1.8.</span> <span class="nav-text">Path Covering</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bipartite-Graph"><span class="nav-number">2.</span> <span class="nav-text">Bipartite Graph</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties"><span class="nav-number">3.</span> <span class="nav-text">Properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hungarian-Algorithm"><span class="nav-number">4.</span> <span class="nav-text">Hungarian Algorithm</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">围城</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"callouweicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Dynamic Programming,Greedy," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="围城个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="BackgroundIt is said that, long long time ago, the poor rabbit experienced the biggest blow in her life - lost a race to the tortoise, depressed in her heart and swearing to avenge. Since then, she hi">
+<meta name="keywords" content="Dynamic Programming,Greedy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tragedy of Greedy Algorithm">
+<meta property="og:url" content="http://yoursite.com/2016/04/25/Tragedy-of-Greedy-Algorithm/index.html">
+<meta property="og:site_name" content="围城个人博客">
+<meta property="og:description" content="BackgroundIt is said that, long long time ago, the poor rabbit experienced the biggest blow in her life - lost a race to the tortoise, depressed in her heart and swearing to avenge. Since then, she hi">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20160425144046644">
+<meta property="og:updated_time" content="2017-09-22T04:44:46.028Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tragedy of Greedy Algorithm">
+<meta name="twitter:description" content="BackgroundIt is said that, long long time ago, the poor rabbit experienced the biggest blow in her life - lost a race to the tortoise, depressed in her heart and swearing to avenge. Since then, she hi">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160425144046644">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '0.5.0',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    tabs: ,
+    motion: "",
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>Tragedy of Greedy Algorithm | 围城个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">围城个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人丑就要多读书</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/25/Tragedy-of-Greedy-Algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="围城">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="围城个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Tragedy of Greedy Algorithm</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/25/Tragedy-of-Greedy-Algorithm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/25/Tragedy-of-Greedy-Algorithm/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>It is said that, long long time ago, the poor rabbit experienced the biggest blow in her life - lost a race to the tortoise, depressed in her heart and swearing to avenge. Since then, she hid in a Hangzhou Xiasha, an agricultural park,  practicing industriously. Finally she mastered the skills- running without rest and running at constant velocity (VR M/s). So, she has been trying to find a chance to teach a lesson to the tortoise.</p>
+<p>Recently when HDU held the 50 anniversary, the major social celebrities it in Xiasha, the rabbit would also take this opportunity to challenge the tortoise. While the tortoise knows that winning is rarely impossible, but under the pressure from public, he had no chance but to accept the challenge.</p>
+<p>The game is based on a straight road ( L meters long ), and the rules are very simple- who first arrived at the end who win the game.</p>
+<p>Since his last win, having become a popular tortoise, being called the “Liu Xiang of the animal kingdom” by a series magazines, he has made big money. In order to win the rabbit, tortoise spent most of his savings buying the most advanced weapon – “ Xiaofeige “ electric vehicles. The vehicle can reach to the spend of VT1 M/s but limited by small battery capacity. When it is full of electricity it can travel a distance of C meters, then can only drive by foot at the speed of VT2 M/s. More over, the tortoise built a lot of (N) power stations on the runway, for charging his electric vehicle. Additionally, charging takes T seconds for each time. Of course, the tortoise can choose to charge or not to charge when past a station.</p>
+<p>The race is about to start, and the rabbit and the tortoise, with his electronic vehicles full of electricity, stand on the starting line. Your task is to write a program to find the best schedule for the tortoise. Can the tortoise win the rabbita at constant speed?</p>
+<h2 id="Input-amp-amp-Output"><a href="#Input-amp-amp-Output" class="headerlink" title="Input &amp;&amp; Output"></a>Input &amp;&amp; Output</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>1st Line：L //the length of road<br>2st Line：N，C，T //number of station, the max distance the vehicle can reach with full electricity, the time charging takes each time<br>3st Line：VR，VT1，VT2 //the speed of rabbit, tortoise’s vehicle with electricity, tortoise’s vehicle without electricity<br>4st Line：p1,p2…pn //the distance from the starting line to each station </p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>If the tortoise has chance to win the rabbit then print “What a pity rabbit!”<br>Else print “Good job,rabbit!”</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h3><p><img src="http://img.blog.csdn.net/20160425144046644" alt="这里写图片描述"></p>
+<h3 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h3><p>Good job,rabbit!<br>What a pity rabbit!<br>What a pity rabbit!</p>
+<h2 id="Greedy"><a href="#Greedy" class="headerlink" title="Greedy"></a>Greedy</h2><p>The tragedy of greedy algorithm is that the result of single course schedule task is not global optimal. The greedy algorithm answer for the three cases are：</p>
+<p>Good job,rabbit!<br>What a pity rabbit!<br>Good job,rabbit!</p>
+<p>When you use greedy algorithm you will get the same answers as first and second case, but the opposite answer against the third case.In three case, using greedy algorithm, the tortoise will stop at the second station without a stop at the first one and the tortoise will spend 27s, more the time rabbit spend. But the best schedule spend 23s when the tortoise stop at the first station, not the second one.That’s why you will get the WA answer for the third case.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Title：WA code</span></div><div class="line"><span class="comment">//Author：Call偶围城</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 100</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> L;</div><div class="line">	<span class="keyword">int</span> N, C, T;</div><div class="line">	<span class="keyword">int</span> VR, VT1, VT2;</div><div class="line">	<span class="keyword">double</span> TR, TT, TT1, TT2;</div><div class="line">	<span class="keyword">int</span> dis[MAX], a, b;</div><div class="line"></div><div class="line">	<span class="keyword">int</span> remain, r1, r2;</div><div class="line"></div><div class="line">	<span class="keyword">int</span> i;</div><div class="line"></div><div class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d%d%d"</span>, &amp;L, &amp;N, &amp;C, &amp;T, &amp;VR, &amp;VT1, &amp;VT2) != EOF) &#123;</div><div class="line">		a = b = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; N;i++) &#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b);</div><div class="line">			dis[i] = b - a;</div><div class="line">			a = b;</div><div class="line">		&#125;</div><div class="line">		dis[i] = L - a;</div><div class="line"></div><div class="line">		TR = L*<span class="number">1.0</span>/VR;</div><div class="line">		</div><div class="line">		<span class="keyword">if</span> (dis[<span class="number">0</span>] &lt; C) &#123;</div><div class="line">			TT = dis[<span class="number">0</span>]*<span class="number">1.0</span>/VT1;</div><div class="line">			remain = C - dis[<span class="number">0</span>];</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			TT = C*<span class="number">1.0</span>/VT1 + (dis[<span class="number">0</span>]-C)*<span class="number">1.0</span>/VT2;</div><div class="line">			remain = <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">for</span> (i = <span class="number">1</span>;i &lt;= N;i++) &#123;</div><div class="line">			TT1 = T;</div><div class="line">			r1 = C;</div><div class="line">			r2 = remain;</div><div class="line">			<span class="keyword">if</span> (dis[i] &lt; C) &#123;</div><div class="line">				TT1 = TT1 + dis[i]*<span class="number">1.0</span>/VT1;</div><div class="line">				r1 = C - dis[i];</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> &#123;</div><div class="line">				TT1 = TT1 + C*<span class="number">1.0</span>/VT1 + (dis[i]-C)*<span class="number">1.0</span>/VT2;</div><div class="line">				r1 = <span class="number">0</span>;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">if</span> (dis[i] &lt; remain) &#123;</div><div class="line">				TT2 = dis[i]*<span class="number">1.0</span>/VT1;</div><div class="line">				r2 = remain - dis[i];</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> &#123;</div><div class="line">				TT2 = remain*<span class="number">1.0</span>/VT1 + (dis[i]-remain)*<span class="number">1.0</span>/VT2;</div><div class="line">				r2 = <span class="number">0</span>;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">if</span> (TT1 &lt; TT2) &#123;</div><div class="line">				TT += TT1;</div><div class="line">				remain = r1;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> &#123;</div><div class="line">				TT += TT2;</div><div class="line">				remain = r2;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">if</span> (TT &gt; TR)</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (TT &lt; TR)</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"What a pity rabbit!\n"</span>);</div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="built_in">printf</span>(<span class="string">"Good job,rabbit!\n"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Dynamic-Programming"><a href="#Dynamic-Programming" class="headerlink" title="Dynamic Programming"></a>Dynamic Programming</h2><p>Recursion Formulae：dp[i] = min ( dp[j] + Tj ), 0 &lt;= j smaller than i<br>You can see the problem as 0/1 knapsack problem in which the volume of bag is infinit and the value of each item is relative to the previous items. The aim of the problem is to find the lightest weight when you stuff all the items into the bag.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Title：AC code</span></div><div class="line"><span class="comment">//Author：Call偶围城</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 105</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 1000000</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> L;</div><div class="line">	<span class="keyword">int</span> N, C, T;</div><div class="line">	<span class="keyword">int</span> VR, VT1, VT2;</div><div class="line">	<span class="keyword">int</span> dis[MAX], <span class="built_in">map</span>[MAX][MAX];</div><div class="line">	<span class="keyword">double</span> dp[MAX];</div><div class="line"></div><div class="line">	<span class="keyword">int</span> i, j;</div><div class="line">	<span class="keyword">double</span> t;</div><div class="line"></div><div class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d%d%d"</span>, &amp;L, &amp;N, &amp;C, &amp;T, &amp;VR, &amp;VT1, &amp;VT2) != EOF) &#123;</div><div class="line">		dis[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (i = <span class="number">1</span>;i &lt;= N;i++) &#123;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;dis[i]);</div><div class="line">		&#125;</div><div class="line">		dis[i] = L;</div><div class="line"></div><div class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>;i &lt;= N+<span class="number">1</span>;i++) &#123;</div><div class="line">			<span class="keyword">for</span> (j = i+<span class="number">1</span>;j &lt;= N+<span class="number">1</span> ;j++) &#123;</div><div class="line">				<span class="built_in">map</span>[i][j] = dis[j] - dis[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">for</span> (i = <span class="number">1</span>;i &lt;= N+<span class="number">1</span>;i++) &#123;</div><div class="line">			dp[<span class="number">0</span>] = <span class="number">0.0</span>;</div><div class="line">			dp[i] = INF*<span class="number">1.0</span>;</div><div class="line"></div><div class="line">			<span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; i;j++) &#123;</div><div class="line">				<span class="keyword">if</span> (<span class="built_in">map</span>[j][i] &lt; C)</div><div class="line">					t = <span class="built_in">map</span>[j][i]*<span class="number">1.0</span>/VT1;</div><div class="line">				<span class="keyword">else</span></div><div class="line">					t = C*<span class="number">1.0</span>/VT1 + (<span class="built_in">map</span>[j][i]-C)*<span class="number">1.0</span>/VT2;</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (j != <span class="number">0</span>)</div><div class="line">					t += T;</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (dp[i] &gt; dp[j] + t)</div><div class="line">					dp[i] = dp[j] + t;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="built_in">printf</span>(dp[N+<span class="number">1</span>]&lt;L*<span class="number">1.0</span>/VR ? <span class="string">"What a pity rabbit!\n"</span>:<span class="string">"Good job,rabbit!\n"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Also, you can see the time of rabbit as the volume of the bag and to find if there is any method to stuff all the items into the bag with limited volume.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
+          
+            <a href="/tags/Greedy/" rel="tag"># Greedy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/27/Centos配置J2EE环境/" rel="next" title="Centos配置J2EE环境">
+                <i class="fa fa-chevron-left"></i> Centos配置J2EE环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/25/Standard-Recursion-Formula-of-0-1-Knapsack/" rel="prev" title="Standard Recursion Formula of 0/1 Knapsack">
+                Standard Recursion Formula of 0/1 Knapsack <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/25/Tragedy-of-Greedy-Algorithm/"
+           data-title="Tragedy of Greedy Algorithm" data-url="http://yoursite.com/2016/04/25/Tragedy-of-Greedy-Algorithm/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/uploads/portrait.jpg"
+              alt="围城" />
+          
+            <p class="site-author-name" itemprop="name">围城</p>
+            <p class="site-description motion-element" itemprop="description">Java|Python</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyZhang94" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-globe"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5321154334" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input-amp-amp-Output"><span class="nav-number">2.</span> <span class="nav-text">Input && Output</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input"><span class="nav-number">2.1.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output"><span class="nav-number">2.2.</span> <span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample"><span class="nav-number">3.</span> <span class="nav-text">Sample</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-1"><span class="nav-number">3.1.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-1"><span class="nav-number">3.2.</span> <span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Greedy"><span class="nav-number">4.</span> <span class="nav-text">Greedy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Programming"><span class="nav-number">5.</span> <span class="nav-text">Dynamic Programming</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">围城</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"callouweicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
