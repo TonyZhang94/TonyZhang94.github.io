@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/08/03/Anomaly-Detection%EF%BC%9AIsolation-Forest/</loc>
+    
+    <lastmod>2017-09-23T01:02:37.643Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/11/19/Ubuntu16.04-Install-Scrapy/</loc>
     
     <lastmod>2017-09-23T01:00:18.261Z</lastmod>
@@ -205,7 +212,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/09/19/Ubuntu16.04-%E9%85%8D%E7%BD%AEapache-php-mysql-%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91%20-%20%E5%89%AF%E6%9C%AC/</loc>
+    <loc>http://yoursite.com/2017/09/19/Ubuntu16.04-%E9%85%8D%E7%BD%AEapache-php-mysql-%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91/</loc>
     
     <lastmod>2017-09-22T04:44:44.526Z</lastmod>
     
