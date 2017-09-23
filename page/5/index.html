@@ -1,20 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 
 
 
+  
 
-<html class="theme-next pisces" lang="zh-Hans">
+
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="">
-
-
-
-
-
-
 
 
 
@@ -32,21 +27,16 @@
 
 
 
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
 
 
-  
-  
-  <link href="/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
 
 
-
-
-
-
-<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
@@ -82,83 +72,66 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+<script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
     scheme: 'Pisces',
-    version: '0.5.0',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
-    tabs: ,
-    motion: "",
+    motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 0,
       author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: "",
-      labels: ""
     }
   };
 </script>
 
-
-
-
-
-
-
-  <title>围城个人博客</title>
-  
-
-
-
-
-
-
-
-
+  <title> 围城个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+
+
+
+
+
+
+
+
+
+
+  
   
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta custom-logo">
-    
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">围城个人博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">人丑就要多读书</p>
-      
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">围城个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
   </div>
+  <p class="site-subtitle">人丑就要多读书</p>
+</div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
 </div>
 
 <nav class="site-nav">
@@ -171,7 +144,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
             首页
           </a>
@@ -181,7 +154,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
             
             分类
           </a>
@@ -191,7 +164,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
             
             关于
           </a>
@@ -201,7 +174,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
             归档
           </a>
@@ -211,7 +184,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
             标签
           </a>
@@ -221,9 +194,9 @@
         <li class="menu-item menu-item-projects">
           <a href="/projects" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
             
-            projects
+            menu.projects
           </a>
         </li>
       
@@ -234,8 +207,6 @@
 
   
 </nav>
-
-
 
  </div>
     </header>
@@ -250,27 +221,13 @@
       
 
   
-
-  
-  
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/07/SDL学习笔记（3）：第一个SDL实例-CLOCK/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="围城">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/portrait.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="围城个人博客">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -278,51 +235,83 @@
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2015/12/07/SDL学习笔记（3）：第一个SDL实例-CLOCK/" itemprop="url">SDL学习笔记（3）：第一个SDL实例 CLOCK</a></h1>
+                <a class="post-title-link" href="/2015/12/07/SDL学习笔记（3）：第一个SDL实例-CLOCK/" itemprop="url">
+                  SDL学习笔记（3）：第一个SDL实例 CLOCK
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-
-            
-
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-07T21:45:07+08:00" content="2015-12-07">
+              2015-12-07
+            </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SDL/" itemprop="url" rel="index">
+                    <span itemprop="name">SDL</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SDL/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C & C++</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2015/12/07/SDL学习笔记（3）：第一个SDL实例-CLOCK/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/07/SDL学习笔记（3）：第一个SDL实例-CLOCK/" itemprop="commentCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/07/SDL学习笔记（3）：第一个SDL实例-CLOCK/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
-          
 
           
-
-          
-
           
 
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -335,29 +324,21 @@
 设计思想1.图片准备找一张钟表图片，使用PS将表盘和三个指针分离，都保存为PNG格式（多余背景都删除）注意事项：保存的指针图片指针方向保持一致并且起点都在表盘中心2.字体包准备宋体 simfang.ttf3.程序设计显示表盘获取系统时间，经过数学计算算出时分秒指针转过的角度更具角度和坐标显示时分秒针更具系统时间和坐标显示日期每秒清空渲染器，并且显示当前时刻下日期和时分秒针（详细代码过程请见下方代码）
 代码展示1234567891011121314151617181920212223242526272829303132333435363738394
           ...
-          <!--noindex-->
-          <div class="post-button text-center">
+
+          <div class="post-more-link text-center">
             <a class="btn" href="/2015/12/07/SDL学习笔记（3）：第一个SDL实例-CLOCK/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-          <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -367,10 +348,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -378,27 +355,13 @@
       
 
   
-
-  
-  
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/24/SDL学习笔记（2）：Init与SDL-Func的使用/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="围城">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/portrait.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="围城个人博客">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -406,51 +369,83 @@
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2015/11/24/SDL学习笔记（2）：Init与SDL-Func的使用/" itemprop="url">SDL学习笔记（2）：Init与SDL_Func的使用</a></h1>
+                <a class="post-title-link" href="/2015/11/24/SDL学习笔记（2）：Init与SDL-Func的使用/" itemprop="url">
+                  SDL学习笔记（2）：Init与SDL_Func的使用
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-
-            
-
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-11-24T14:39:52+08:00" content="2015-11-24">
+              2015-11-24
+            </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SDL/" itemprop="url" rel="index">
+                    <span itemprop="name">SDL</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SDL/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C & C++</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2015/11/24/SDL学习笔记（2）：Init与SDL-Func的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/24/SDL学习笔记（2）：Init与SDL-Func的使用/" itemprop="commentCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/24/SDL学习笔记（2）：Init与SDL-Func的使用/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
-          
 
           
-
-          
-
           
 
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -461,29 +456,21 @@
           
           初始化SDL_Func以下SDL函数须在调用其它SDL函数之前先行调用12345678910111213141516171819202122232425// SDL初始化if (SDL_Init(SDL_INIT_EVERYTHING) == -1) &#123;	cout &lt;&lt; SDL_GetError() &lt;&lt; std::endl;	return 1;&#125;// 创建窗口window = SDL_CreateWindow("WindowName",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,SCREEN_WIDT
           ...
-          <!--noindex-->
-          <div class="post-button text-center">
+
+          <div class="post-more-link text-center">
             <a class="btn" href="/2015/11/24/SDL学习笔记（2）：Init与SDL-Func的使用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-          <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -493,10 +480,6 @@
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -504,27 +487,13 @@
       
 
   
-
-  
-  
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/04/SDL学习笔记（1）：SDL的配置/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="围城">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/portrait.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="围城个人博客">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -532,51 +501,83 @@
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2015/10/04/SDL学习笔记（1）：SDL的配置/" itemprop="url">SDL学习笔记（1）——SDL的配置</a></h1>
+                <a class="post-title-link" href="/2015/10/04/SDL学习笔记（1）：SDL的配置/" itemprop="url">
+                  SDL学习笔记（1）——SDL的配置
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-
-            
-
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T21:03:36+08:00" content="2015-10-04">
+              2015-10-04
+            </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SDL/" itemprop="url" rel="index">
+                    <span itemprop="name">SDL</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SDL/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C & C++</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2015/10/04/SDL学习笔记（1）：SDL的配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/SDL学习笔记（1）：SDL的配置/" itemprop="commentCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/SDL学习笔记（1）：SDL的配置/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
-          
 
           
-
-          
-
           
 
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -589,29 +590,21 @@
 
 SDL介绍SDL简介SDL（Simple DirectMedia Layer）是一套开放源代码的跨平台多媒体开发库，使用C语言写成。SDL提供了数种控制图像、声音、输出入的函数，让开发者只要用相同或是相似的代码就可以开发出跨多个平台（Linux、Windows、Mac OS X等）的应用软件。因此
           ...
-          <!--noindex-->
-          <div class="post-button text-center">
+
+          <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/04/SDL学习笔记（1）：SDL的配置/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-          <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -621,10 +614,6 @@ SDL介绍SDL简介SDL（Simple DirectMedia Layer）是一套开放源代码的�
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -632,27 +621,13 @@ SDL介绍SDL简介SDL（Simple DirectMedia Layer）是一套开放源代码的�
       
 
   
-
-  
-  
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/31/Coryphaei/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="围城">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/portrait.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="围城个人博客">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -660,51 +635,71 @@ SDL介绍SDL简介SDL（Simple DirectMedia Layer）是一套开放源代码的�
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2015/08/31/Coryphaei/" itemprop="url">Coryphaei</a></h1>
+                <a class="post-title-link" href="/2015/08/31/Coryphaei/" itemprop="url">
+                  Coryphaei
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-
-            
-
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-31T23:03:25+08:00" content="2015-08-31">
+              2015-08-31
+            </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Life-Events/" itemprop="url" rel="index">
+                    <span itemprop="name">Life-Events</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2015/08/31/Coryphaei/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/31/Coryphaei/" itemprop="commentCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/31/Coryphaei/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
-          
 
           
-
-          
-
           
 
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -716,29 +711,21 @@ SDL介绍SDL简介SDL（Simple DirectMedia Layer）是一套开放源代码的�
           六月底我在一个学长的介绍下来到了倡予科技，并在这里作为后台工程师实习了两个月，这是我第一次到社会上的正规公司实习，感触很多。还有七天就要开学了，我想在开学前记录下我两个月的实习生活。
 拒绝上班六月底苏州的天气异常的湿热，和我老家南京及其相似。不过和以往暑假不同，我并不是坐在我的卧室里吹着空调，听着歌，看着视频，吃着妈妈烧的不怎么样的三餐，取而代之的是我留在了苏州参加实习，尤其难以适应顶着七八点的骄阳去上班。上班前我和另一个实习生某骏商量好我们每天从吴中区每天骑车去新区上班，为此我还特地在实习前新买了一辆价值八百块的山地自行车。姑苏区到工业园区有十一公里，其中没有仍和绿荫遮挡的金鸡湖大道真的是骑
           ...
-          <!--noindex-->
-          <div class="post-button text-center">
+
+          <div class="post-more-link text-center">
             <a class="btn" href="/2015/08/31/Coryphaei/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-          <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -748,10 +735,6 @@ SDL介绍SDL简介SDL（Simple DirectMedia Layer）是一套开放源代码的�
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -759,27 +742,13 @@ SDL介绍SDL简介SDL（Simple DirectMedia Layer）是一套开放源代码的�
       
 
   
-
-  
-  
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/12/07/Linux环境下的编译/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="围城">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/portrait.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="围城个人博客">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -787,51 +756,83 @@ SDL介绍SDL简介SDL（Simple DirectMedia Layer）是一套开放源代码的�
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/12/07/Linux环境下的编译/" itemprop="url">Linux环境下的一些编译问题</a></h1>
+                <a class="post-title-link" href="/2014/12/07/Linux环境下的编译/" itemprop="url">
+                  Linux环境下的一些编译问题
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-
-            
-
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-12-07T19:03:18+08:00" content="2014-12-07">
+              2014-12-07
+            </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2014/12/07/Linux环境下的编译/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/07/Linux环境下的编译/" itemprop="commentCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/07/Linux环境下的编译/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
-          
 
           
-
-          
-
           
 
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -852,29 +853,21 @@ C与C++基础编译指令1cc -o demo demo.c
 
 Lex123lex –o demo.c demo.lgcc –ll demo.c –
           ...
-          <!--noindex-->
-          <div class="post-button text-center">
+
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/12/07/Linux环境下的编译/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-          <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -884,10 +877,6 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -895,27 +884,13 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
       
 
   
-
-  
-  
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/06/14/关于vim的一些基本配置/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="围城">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/portrait.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="围城个人博客">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -923,51 +898,71 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/06/14/关于vim的一些基本配置/" itemprop="url">关于vim的一些基本配置</a></h1>
+                <a class="post-title-link" href="/2014/06/14/关于vim的一些基本配置/" itemprop="url">
+                  关于vim的一些基本配置
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-
-            
-
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-06-14T15:57:15+08:00" content="2014-06-14">
+              2014-06-14
+            </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2014/06/14/关于vim的一些基本配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/06/14/关于vim的一些基本配置/" itemprop="commentCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/06/14/关于vim的一些基本配置/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
-          
 
           
-
-          
-
           
 
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -979,29 +974,21 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
           Vim是一个类似于Vi的著名的功能强大、高度可定制的文本编辑器，在Vi的基础上改进和增加了很多特性，因此vim备受喜爱。vim的下载安装也很简单，只要在终端输入sudo apt-get install vim-gtk即可但是初次使用vim的用户经常会感到不适应，特别时用vim编程的用户，下面我就自述以下自己对vim的配置过程
 括号自动匹配使用 sudo vi 打开/etc/vim/vimrc 文件在文件结尾处直接添加一下代码即可1234inoremap ( ()&lt;ESC&gt;iinoremap [ []&lt;ESC&gt;iinoremap &#123; &#123;&#125;&l
           ...
-          <!--noindex-->
-          <div class="post-button text-center">
+
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/06/14/关于vim的一些基本配置/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-          <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -1011,10 +998,6 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1022,27 +1005,13 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
       
 
   
-
-  
-  
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/06/03/我的博客搬家啦/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="围城">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/portrait.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="围城个人博客">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -1050,51 +1019,71 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/06/03/我的博客搬家啦/" itemprop="url">我的博客搬家啦</a></h1>
+                <a class="post-title-link" href="/2014/06/03/我的博客搬家啦/" itemprop="url">
+                  我的博客搬家啦
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-
-            
-
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-06-03T18:29:01+08:00" content="2014-06-03">
+              2014-06-03
+            </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Life-Events/" itemprop="url" rel="index">
+                    <span itemprop="name">Life-Events</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2014/06/03/我的博客搬家啦/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/06/03/我的博客搬家啦/" itemprop="commentCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/06/03/我的博客搬家啦/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
-          
 
           
-
-          
-
           
 
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1106,29 +1095,21 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
           昨天终于把博客搭好了，这是我新博客的第一篇文章。搭这个博客花费了一番周折，一开始使用别人的服务器搭，发现存在文件乱码，传输文件效率低等缺点，服务器网慢等缺点。后来我选择把网站建在github上，但是还是有问题，问题依然是字符集不同造成的乱发，文件传输效率低和网络慢等确定。最后我选择不在服务器上搭博客了，就在windows下搭，优点就是操作相对简单，不存在乱码的问题，缺点就是要借助其他服务器平台发布，如我就选择github的工具。我会尽快把之前在CSDN的博客搬到这里，虽然之前写的博客只有两篇。
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
+
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/06/03/我的博客搬家啦/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-          <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -1138,10 +1119,6 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1149,27 +1126,13 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
       
 
   
-
-  
-  
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/06/03/如何使用Hexo/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="围城">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/portrait.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="围城个人博客">
-    </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -1177,51 +1140,71 @@ Lex123lex –o demo.c demo.lgcc –ll demo.c –
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/06/03/如何使用Hexo/" itemprop="url">如何使用Hexo</a></h1>
+                <a class="post-title-link" href="/2014/06/03/如何使用Hexo/" itemprop="url">
+                  如何使用Hexo
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-
-            
-
-            
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-06-03T12:39:04+08:00" content="2014-06-03">
+              2014-06-03
+            </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Nodes/" itemprop="url" rel="index">
+                    <span itemprop="name">Nodes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
+                &nbsp; | &nbsp;
                 <a href="/2014/06/03/如何使用Hexo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/06/03/如何使用Hexo/" itemprop="commentCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/06/03/如何使用Hexo/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
           
 
           
-          
 
           
-
-          
-
           
 
         </div>
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1240,29 +1223,21 @@ Deploy to remote sites1$ hexo deploy
 More info: Deployment
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
+
+          <div class="post-more-link text-center">
             <a class="btn" href="/2014/06/03/如何使用Hexo/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-          <!--/noindex-->
         
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -1272,10 +1247,6 @@ More info: Deployment
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1308,42 +1279,31 @@ More info: Deployment
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          
-            <img class="site-author-image" itemprop="image"
-              src="/uploads/portrait.jpg"
-              alt="围城" />
-          
-            <p class="site-author-name" itemprop="name">围城</p>
-            <p class="site-description motion-element" itemprop="description">Java|Python</p>
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/portrait.jpg"
+               alt="围城" />
+          <p class="site-author-name" itemprop="name">围城</p>
+          <p class="site-description motion-element" itemprop="description">Java|Python</p>
         </div>
-
         <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
 
           
-            <div class="site-state-item site-state-posts">
-            
-              <a href="/archives">
-            
-                <span class="site-state-item-count">42</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
             <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
+              <a href="/categories">
                 <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -1351,10 +1311,8 @@ More info: Deployment
           
 
           
-            
-            
             <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
+              <a href="/tags">
                 <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1376,21 +1334,27 @@ More info: Deployment
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/TonyZhang94" target="_blank" title="GitHub">
+                <a href="https://github.com/TonyZhang94" target="_blank">
                   
-                    <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://weibo.com/5321154334" target="_blank" title="Weibo">
+                <a href="https://weibo.com/5321154334" target="_blank">
                   
-                    <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank" title="Zhihu">
+                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank">
                   
-                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                    <i class="fa fa-twitter"></i> Zhihu
+                  
+                </a>
               </span>
             
           
@@ -1400,14 +1364,11 @@ More info: Deployment
         
 
         
-        
-
-        
-
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
 
       </section>
-
-      
 
       
 
@@ -1423,40 +1384,42 @@ More info: Deployment
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2014 &mdash; 
+  &copy;  2014 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">围城</span>
+</div>
 
-  
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
 </div>
 
 
 
-        
-
-
-
-
-
-
-
-        
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
+
+
+  
+
+
+
 
 <script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
@@ -1465,43 +1428,17 @@ More info: Deployment
 </script>
 
 
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
 
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
 
 
   
@@ -1521,10 +1458,6 @@ More info: Deployment
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
 
-
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
 
 
   
@@ -1557,26 +1490,6 @@ More info: Deployment
 
   
     
-    
-    <script src="//ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
 
 
@@ -1584,31 +1497,15 @@ More info: Deployment
 
 
   
+  
+  
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
 </script>
 
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
