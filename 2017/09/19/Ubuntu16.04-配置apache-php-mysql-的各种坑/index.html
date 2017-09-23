@@ -67,7 +67,7 @@
 <meta property="og:site_name" content="围城个人博客">
 <meta property="og:description" content="先说几句：  如果可以换centos吧，Ubuntu下安装这些的路径，配置文件名称都和其他linxu系统不一致，很难找 Ubuntu只提供PHP7 请不要安装PHP7 请不要安装PHP7 请不要安装PHP7 如果读者非要安装PHP7，请退出笔者的博客吧  Apache21apt-get install apache2 这个没什么好说的，配置文件在/etc/apache2/apache2.conf下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-22T04:44:44.526Z">
+<meta property="og:updated_time" content="2017-09-23T04:24:34.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04 配置apache php mysql 的各种坑">
 <meta name="twitter:description" content="先说几句：  如果可以换centos吧，Ubuntu下安装这些的路径，配置文件名称都和其他linxu系统不一致，很难找 Ubuntu只提供PHP7 请不要安装PHP7 请不要安装PHP7 请不要安装PHP7 如果读者非要安装PHP7，请退出笔者的博客吧  Apache21apt-get install apache2 这个没什么好说的，配置文件在/etc/apache2/apache2.conf下">
@@ -316,12 +316,12 @@
 <p>这个没什么好说的，配置文件在/etc/apache2/apache2.conf下，配置文件不需要修改外网可以访问，可以用localhost和IP访问试试。apache默认位置在/var/www/html/下。apache的重启命令为（印象中是这个，如果错了网上百度一下吧，并请给笔者留个言，谢谢）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/apache2 restart</div></pre></td></tr></table></figure></p>
 <p>请记住服务器80端口一定要打开！服务器80端口一定要打开！服务器80端口一定要打开！</p>
 <h2 id="PHP5-6"><a href="#PHP5-6" class="headerlink" title="PHP5.6"></a>PHP5.6</h2><p>请不要装PHP7，因为安装PHP7之后会遇到各种坑，反正笔者是没有能全部填上，如果有兴趣读者可以去填着试试，如果成功了请给笔者留言，谢谢。如果已经安装了PHP7请先卸载：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo dpkg -l | grep php| awk &apos;&#123;print $2&#125;&apos; |tr &quot;\n&quot; &quot; &quot;</div><div class="line">sudo apt-get install aptitude</div><div class="line">sudo aptitude purge `dpkg -l | grep php| awk &apos;&#123;print $2&#125;&apos; |tr &quot;\n&quot; &quot; &quot;`</div></pre></td></tr></table></figure></p>
-<p>卸载后添加 PPA<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:ondrej/php</div></pre></td></tr></table></figure></p>
+<p>卸载后添加 PPA：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:ondrej/php</div></pre></td></tr></table></figure></p>
 <p>执行安装命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install php5.6</div></pre></td></tr></table></figure></p>
 <p>中途遇到什么选择，要么Y、要么确认、要么OK。之后安装扩展：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install php5.6-gd</div><div class="line">sudo apt-get install php5.6-mysql</div></pre></td></tr></table></figure></p>
-<p>重启apache后可以在apache路径下新建phpinfo.php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">	echo phpinfo();</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
+<p>重启apache后可以在apache路径下新建phpinfo.php：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">	echo phpinfo();</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
 <p>打开浏览器输入localhost/phpinfo.php就能看到是否安装成功。php配置路径一般在/etc/php/5.6/apache2/php.ini，保险去查看phpinfo页面的信息。</p>
-<h2 id="MySQL5-6"><a href="#MySQL5-6" class="headerlink" title="MySQL5.6"></a>MySQL5.6</h2><p>记住安装MySQL时一定要设置密码，一定要设置密码，一定要设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install mysql-server php5.6-mysql    root root0x0</div></pre></td></tr></table></figure></p>
+<h2 id="MySQL5-6"><a href="#MySQL5-6" class="headerlink" title="MySQL5.6"></a>MySQL5.6</h2><p>记住安装MySQL时一定要设置密码，一定要设置密码，一定要设置密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install mysql-server php5.6-mysql    root root0x0</div></pre></td></tr></table></figure></p>
 <p>如果忘记了怎么办，反正网上的修改方法笔者没有尝试成功，读者可以去试，笔者的方法是新添加一个用户。去/etc/mysql/debian.cnf查找默认用户[user]及[password]：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -u user -p</div></pre></td></tr></table></figure></p>
 <p>输入密码后创建新用户、设置密码并授权：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CREATE USER &apos;newuser&apos;@&apos;host&apos; IDENTIFIED BY &apos;newpassword&apos;; </div><div class="line">GRANT privileges ON databasename.tablename TO &apos;newuser&apos;@&apos;host&apos; ;</div></pre></td></tr></table></figure></p>
 <p>这里还有步操作不知道有没有用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">USE user;</div><div class="line">UPDATE user SET host=&apos;%&apos; where user=&apos;newuser&apos;;</div></pre></td></tr></table></figure></p>
@@ -329,7 +329,7 @@
 <p>如果还不行的话就试试网上说的safe_mysqld，添加skip-name-resolve等方法吧</p>
 <p>请记住服务器3306端口一定要打开！服务器3306端口一定要打开！服务器3306端口一定要打开！</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>windows下安装可以直接下载LAMP，WAMP，XAMPP都可以</p>
-<p>上传文件大小限制修改php.ini的upload_max_file，并且上传文件要把项目赋予777权限（什么是777上网百度吧）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod -R 777 projectDir</div></pre></td></tr></table></figure></p>
+<p>上传文件大小限制修改php.ini的upload_max_file，并且上传文件要把项目赋予777权限（什么是777上网百度吧）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod -R 777 projectDir</div></pre></td></tr></table></figure></p>
 <p>不到万不得已不要重装MySQL</p>
 <p>window下python的MySQLdb笔者没有找到pip或者esay_install的办法，VC++9.0的环境笔者也差不多有了，最后是<a href="http://www.codegood.com/archives/129" target="blank">网上下载</a>直接安装的，安装后在脚本里import就可以了。</p>
 <p>Linxu下安装python的MySQLdb：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libmysqlclient-dev</div><div class="line">sudo apt-get install python-dev</div><div class="line">sudo pip install mysql-python</div></pre></td></tr></table></figure></p>
@@ -430,7 +430,7 @@
                src="/uploads/portrait.jpg"
                alt="围城" />
           <p class="site-author-name" itemprop="name">围城</p>
-          <p class="site-description motion-element" itemprop="description">Java|Python</p>
+          <p class="site-description motion-element" itemprop="description">Java|Python|CC++</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
