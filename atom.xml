@@ -47,31 +47,6 @@
   </entry>
   
   <entry>
-    <title>Ubuntu16.04 Install Scrapy</title>
-    <link href="http://yoursite.com/2017/09/19/Ubuntu16.04-Install-Scrapy/"/>
-    <id>http://yoursite.com/2017/09/19/Ubuntu16.04-Install-Scrapy/</id>
-    <published>2017-09-19T14:57:15.000Z</published>
-    <updated>2017-09-22T04:44:45.184Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="First-Step"><a href="#First-Step" class="headerlink" title="First Step"></a>First Step</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</div></pre></td></tr></table></figure><h2 id="Second-Step"><a href="#Second-Step" class="headerlink" title="Second Step"></a>Second Step</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/apt/sources.list</div></pre></td></tr></table></figure><p>Add these sources to the tail of the file:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise-updates main restricted</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise-updates main restricted</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise-updates universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise-updates universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise multiverse</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise multiverse</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise-updates multiverse</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise-updates multiverse</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise-backports main restricted universe multiverse</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise-backports main restricted universe multiverse</div><div class="line"></div><div class="line">deb http://security.ubuntu.com/ubuntu precise-security main restricted</div><div class="line">deb-src http://security.ubuntu.com/ubuntu precise-security main restricted</div><div class="line">deb http://security.ubuntu.com/ubuntu precise-security universe</div><div class="line">deb-src http://security.ubuntu.com/ubuntu precise-security universe</div><div class="line">deb http://security.ubuntu.com/ubuntu precise-security multiverse</div><div class="line">deb-src http://security.ubuntu.com/ubuntu precise-security multiverse</div></pre></td></tr></table></figure></p><h2 id="Third-Step"><a href="#Third-Step" class="headerlink" title="Third Step"></a>Third Step</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get upgrade</div></pre></td></tr></table></figure><p>Choose default option. Two instructions above may take few minutes.</p><h2 id="Install-Scrapy"><a href="#Install-Scrapy" class="headerlink" title="Install Scrapy"></a>Install Scrapy</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-scrapy</div></pre></td></tr></table></figure><h2 id="Other-Python-Package"><a href="#Other-Python-Package" class="headerlink" title="Other Python Package"></a>Other Python Package</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-psycopg2</div><div class="line">sudo apt-get install python-bs4</div><div class="line">sudo apt-get install python-requests</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;First-Step&quot;&gt;&lt;a href=&quot;#First-Step&quot; class=&quot;headerlink&quot; title=&quot;First Step&quot;&gt;&lt;/a&gt;First Step&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;t
-      
-    
-    </summary>
-    
-      <category term="Notes" scheme="http://yoursite.com/categories/Notes/"/>
-    
-    
-      <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
     <title>毕设 视觉显著性目标检测算法研究与实现</title>
     <link href="http://yoursite.com/2017/07/01/%E6%AF%95%E8%AE%BE-%E8%A7%86%E8%A7%89%E6%98%BE%E8%91%97%E6%80%A7%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
     <id>http://yoursite.com/2017/07/01/毕设-视觉显著性目标检测算法研究与实现/</id>
@@ -94,6 +69,31 @@
     
     
       <category term="C &amp; C++" scheme="http://yoursite.com/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu16.04 Install Scrapy</title>
+    <link href="http://yoursite.com/2016/11/19/Ubuntu16.04-Install-Scrapy/"/>
+    <id>http://yoursite.com/2016/11/19/Ubuntu16.04-Install-Scrapy/</id>
+    <published>2016-11-19T14:34:13.000Z</published>
+    <updated>2017-09-23T01:00:18.261Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="First-Step"><a href="#First-Step" class="headerlink" title="First Step"></a>First Step</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</div></pre></td></tr></table></figure><h2 id="Second-Step"><a href="#Second-Step" class="headerlink" title="Second Step"></a>Second Step</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/apt/sources.list</div></pre></td></tr></table></figure><p>Add these sources to the tail of the file:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise-updates main restricted</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise-updates main restricted</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise-updates universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise-updates universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise multiverse</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise multiverse</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise-updates multiverse</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise-updates multiverse</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu/ precise-backports main restricted universe multiverse</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu/ precise-backports main restricted universe multiverse</div><div class="line"></div><div class="line">deb http://security.ubuntu.com/ubuntu precise-security main restricted</div><div class="line">deb-src http://security.ubuntu.com/ubuntu precise-security main restricted</div><div class="line">deb http://security.ubuntu.com/ubuntu precise-security universe</div><div class="line">deb-src http://security.ubuntu.com/ubuntu precise-security universe</div><div class="line">deb http://security.ubuntu.com/ubuntu precise-security multiverse</div><div class="line">deb-src http://security.ubuntu.com/ubuntu precise-security multiverse</div></pre></td></tr></table></figure></p><h2 id="Third-Step"><a href="#Third-Step" class="headerlink" title="Third Step"></a>Third Step</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get upgrade</div></pre></td></tr></table></figure><p>Choose default option. Two instructions above may take few minutes.</p><h2 id="Install-Scrapy"><a href="#Install-Scrapy" class="headerlink" title="Install Scrapy"></a>Install Scrapy</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-scrapy</div></pre></td></tr></table></figure><h2 id="Other-Python-Package"><a href="#Other-Python-Package" class="headerlink" title="Other Python Package"></a>Other Python Package</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-psycopg2</div><div class="line">sudo apt-get install python-bs4</div><div class="line">sudo apt-get install python-requests</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;First-Step&quot;&gt;&lt;a href=&quot;#First-Step&quot; class=&quot;headerlink&quot; title=&quot;First Step&quot;&gt;&lt;/a&gt;First Step&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;t
+      
+    
+    </summary>
+    
+      <category term="Notes" scheme="http://yoursite.com/categories/Notes/"/>
+    
+    
+      <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
     
   </entry>
   
