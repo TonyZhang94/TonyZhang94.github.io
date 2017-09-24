@@ -1,0 +1,818 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Graphics,Fourier," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="围城个人博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="IDFT FormulaN is the size of the sequence. Fundamental Components WN = e^[-j*(2pi/N)], WN^(-nk) is K subharmonic component.The relation between Euler Formula and Trigonometric Function:e^(it) = cos(t)">
+<meta name="keywords" content="Graphics,Fourier">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Inverse Discrete Fourier Transform And Two-Dimensional Inverse Discrete Fourier Transform">
+<meta property="og:url" content="http://yoursite.com/2017/05/10/Inverse-Discrete-Fourier-Transform-And-Two-Dimensional-Inverse-Discrete-Fourier-Transform/index.html">
+<meta property="og:site_name" content="围城个人博客">
+<meta property="og:description" content="IDFT FormulaN is the size of the sequence. Fundamental Components WN = e^[-j*(2pi/N)], WN^(-nk) is K subharmonic component.The relation between Euler Formula and Trigonometric Function:e^(it) = cos(t)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20170924134343332?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170924134437758?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-09-24T05:55:18.289Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Inverse Discrete Fourier Transform And Two-Dimensional Inverse Discrete Fourier Transform">
+<meta name="twitter:description" content="IDFT FormulaN is the size of the sequence. Fundamental Components WN = e^[-j*(2pi/N)], WN^(-nk) is K subharmonic component.The relation between Euler Formula and Trigonometric Function:e^(it) = cos(t)">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170924134343332?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Inverse Discrete Fourier Transform And Two-Dimensional Inverse Discrete Fourier Transform | 围城个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">围城个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人丑就要多读书</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            menu.projects
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Inverse Discrete Fourier Transform And Two-Dimensional Inverse Discrete Fourier Transform
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-10T21:34:11+08:00" content="2017-05-10">
+              2017-05-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Mathematics/" itemprop="url" rel="index">
+                    <span itemprop="name">Mathematics</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/10/Inverse-Discrete-Fourier-Transform-And-Two-Dimensional-Inverse-Discrete-Fourier-Transform/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/10/Inverse-Discrete-Fourier-Transform-And-Two-Dimensional-Inverse-Discrete-Fourier-Transform/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="IDFT-Formula"><a href="#IDFT-Formula" class="headerlink" title="IDFT Formula"></a>IDFT Formula</h2><center><br><img src="http://img.blog.csdn.net/20170924134343332?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300"><br></center><br>N is the size of the sequence. Fundamental Components W<small>N</small> = e^[-j*(2pi/N)], W<small>N</small>^(-nk) is K subharmonic component.<br>The relation between Euler Formula and Trigonometric Function:<br><center><br>e^(it) = cos(t)+i·sin(t)<br>e^(-it) = cos(t)-i·sin(t)<br></center>
+
+<h2 id="IDFT-Code"><a href="#IDFT-Code" class="headerlink" title="IDFT Code"></a>IDFT Code</h2><p>I delete my IDFT code unconsciously. The code below is downloaded on the Internet. Thanks <a href="http://blog.csdn.net/calcular/article/details/46804779" target="_blank" rel="external">Calcular</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">// Author: Calcular</div><div class="line">struct complex&#123;  </div><div class="line">    double r,i;  </div><div class="line">&#125;;  </div><div class="line"></div><div class="line">complex multi(complex a,complex b)&#123;  </div><div class="line">    complex tmp;  </div><div class="line">    tmp.r=a.r*b.r-a.i*b.i;  </div><div class="line">    tmp.i=a.r*b.i+a.i*b.r;  </div><div class="line">    return tmp;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">int fi(double in)&#123;  </div><div class="line">    if((in-(int)in)&gt;0.5) return (int)in+1;  </div><div class="line">    else return (int)in;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">void IDFT(double **in,int *out,const int &amp;n)  </div><div class="line">&#123;  </div><div class="line">    int i,j;  </div><div class="line">    complex **W=new complex*[n];  </div><div class="line">    for(i=0;i&lt;n;i++)&#123;  </div><div class="line">        W[i]=new complex[n];  </div><div class="line">    &#125;  </div><div class="line">    complex *lis=new complex[(n-1)*(n-1)+1];  </div><div class="line">    lis[0].r=1;lis[0].i=0;  </div><div class="line">    lis[1].r=cos(2.0*PI/n);  </div><div class="line">    lis[1].i=sin(2.0*PI/n);  </div><div class="line">    for(i=2;i&lt;=(n-1)*(n-1);i++)&#123;  </div><div class="line">        lis[i]=multi(lis[1],lis[i-1]);  </div><div class="line">    &#125;  </div><div class="line">    for(i=0;i&lt;n;i++)&#123;  </div><div class="line">        for(j=0;j&lt;n;j++)&#123;  </div><div class="line">            W[i][j]=lis[i*j];  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    complex sum;  </div><div class="line">    for(i=0;i&lt;n;i++)&#123;  </div><div class="line">        sum.r=0;sum.i=0;  </div><div class="line">        for(j=0;j&lt;n;j++)&#123;  </div><div class="line">            sum.r+=W[i][j].r*in[j][0]-W[i][j].i*in[j][1];  </div><div class="line">            sum.i+=W[i][j].i*in[j][0]+W[i][j].r*in[j][1];  </div><div class="line">        &#125;  </div><div class="line">        out[i]=fi(sum.r/n);  </div><div class="line">    &#125;  </div><div class="line">    for(i=0;i&lt;n;i++) delete []W[i];  </div><div class="line">    delete []W;  </div><div class="line">    delete []lis;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="2D-IDFT-Formula"><a href="#2D-IDFT-Formula" class="headerlink" title="2D-IDFT Formula"></a>2D-IDFT Formula</h2><center><br><img src="http://img.blog.csdn.net/20170924134437758?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300"><br></center><br>F(u, v) is a spectrum of size MxN, the relations between Euler Formula and Trigonometric Function are:<br><center><br>e^(it) = cos(t)+i·sin(t)<br>e^(-it) = cos(t)-i·sin(t)<br></center>
+
+<h2 id="2D-IDFT-Code"><a href="#2D-IDFT-Code" class="headerlink" title="2D-IDFT Code"></a>2D-IDFT Code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">// Author: 围城</div><div class="line">typedef struct complex</div><div class="line">&#123;</div><div class="line">	double real;</div><div class="line">	double imagin;</div><div class="line">&#125; COMPLEX;</div><div class="line"></div><div class="line">int IDFT2D(COMPLEX *src,COMPLEX *dst,int size_w,int size_h)&#123;  </div><div class="line">	for(int i=0;i&lt;size_w;i++)&#123;  </div><div class="line">		for(int j=0;j&lt;size_h;j++)&#123;  </div><div class="line">			double real=0.0;  </div><div class="line">			double imagin=0.0;  </div><div class="line">			for(int u=0;u&lt;size_w;u++)&#123;  </div><div class="line">				for(int v=0;v&lt;size_h;v++)&#123;  </div><div class="line">					double R=src[u*size_w+v].real;  </div><div class="line">					double I=src[u*size_w+v].imagin;  </div><div class="line">					double x=Pi*2*((double)i*u/(double)size_w+(double)j*v/(double)size_h);  </div><div class="line">					real+=R*cos(x)-I*sin(x);  </div><div class="line">					imagin+=I*cos(x)+R*sin(x);  </div><div class="line"></div><div class="line">				&#125;  </div><div class="line">			&#125;  </div><div class="line">			dst[i*size_w+j].real=(1./(size_w*size_h))*real;  </div><div class="line">			dst[i*size_w+j].imagin=(1./(size_w*size_h))*imagin;  </div><div class="line"></div><div class="line">		&#125;  </div><div class="line">	&#125;  </div><div class="line">	return 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Graphics/" rel="tag">#Graphics</a>
+          
+            <a href="/tags/Fourier/" rel="tag">#Fourier</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/04/Discrete-Fourier-Transform-And-Two-Dimensional-Discrete-Fourier-Transform/" rel="next" title="Discrete Fourier Transform And Two-Dimensional Discrete Fourier Transform">
+                <i class="fa fa-chevron-left"></i> Discrete Fourier Transform And Two-Dimensional Discrete Fourier Transform
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/12/Fast-Fourier-Transform-And-It's-Inverse-Transform/" rel="prev" title="Fast Fourier Transform And It's Inverse Transform">
+                Fast Fourier Transform And It's Inverse Transform <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/10/Inverse-Discrete-Fourier-Transform-And-Two-Dimensional-Inverse-Discrete-Fourier-Transform/"
+           data-title="Inverse Discrete Fourier Transform And Two-Dimensional Inverse Discrete Fourier Transform" data-url="http://yoursite.com/2017/05/10/Inverse-Discrete-Fourier-Transform-And-Two-Dimensional-Inverse-Discrete-Fourier-Transform/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://img.blog.csdn.net/20170923195118105?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"
+               alt="围城" />
+          <p class="site-author-name" itemprop="name">围城</p>
+          <p class="site-description motion-element" itemprop="description">Java|Python|CC++</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyZhang94" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/5321154334" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/callou-wei-cheng" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i> Zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">友情链接</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://wangli0.github.com" target="_blank">Java学习天地</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://wangli0.github.com" target="_blank">ruulai.com</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://wangli0.github.com" target="_blank">视听中国</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IDFT-Formula"><span class="nav-number">1.</span> <span class="nav-text">IDFT Formula</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDFT-Code"><span class="nav-number">2.</span> <span class="nav-text">IDFT Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2D-IDFT-Formula"><span class="nav-number">3.</span> <span class="nav-text">2D-IDFT Formula</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2D-IDFT-Code"><span class="nav-number">4.</span> <span class="nav-text">2D-IDFT Code</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">围城</span>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"callouweicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
