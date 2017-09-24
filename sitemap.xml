@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2017-09-24T06:30:31.752Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/05/04/Discrete-Fourier-Transform-And-Two-Dimensional-Discrete-Fourier-Transform/</loc>
     
     <lastmod>2017-09-24T06:15:05.332Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2017/03/17/RGB-To-Gray-Or-To-Lab/</loc>
     
     <lastmod>2017-09-24T05:55:14.549Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2017-09-23T14:05:03.135Z</lastmod>
     
   </url>
   
