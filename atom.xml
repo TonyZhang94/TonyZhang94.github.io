@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-24T07:07:46.344Z</updated>
+  <updated>2017-12-11T03:07:47.710Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Interval Scanning Line ZBuffer</title>
+    <link href="http://yoursite.com/2017/11/16/Interval-Scanning-Line-ZBuffer/"/>
+    <id>http://yoursite.com/2017/11/16/Interval-Scanning-Line-ZBuffer/</id>
+    <published>2017-11-16T14:56:11.000Z</published>
+    <updated>2017-12-11T03:07:47.710Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是笔者在浙江大学读研阶段选修的由<a href="http://www.cad.zju.edu.cn/home/jqfeng/" target="_blank" rel="external">冯结青教授</a>和<a href="http://person.zju.edu.cn/rwang" target="_blank" rel="external">王锐教授</a>所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。</p><h2 id="说明文档"><a href="#说明文档" class="headerlink" title="说明文档"></a>说明文档</h2><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic1.png"><br></center><br><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic2.png"><br></center><br><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic3.png"><br></center><br><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic4.png"><br></center><br><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic5.png"><br></center><h2 id="百度云盘链接"><a href="#百度云盘链接" class="headerlink" title="百度云盘链接"></a>百度云盘链接</h2><p>笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">链接：https://pan.baidu.com/s/1gfQv5xp 密码：5p1n</div></pre></td></tr></table></figure></p><p>感谢您的阅读！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;这是笔者在浙江大学读研阶段选修的由&lt;a href=&quot;http://www.cad.zju.edu.cn/home/jqfeng/&quot; targ
+      
+    
+    </summary>
+    
+      <category term="CAD&amp;GC" scheme="http://yoursite.com/categories/CAD-GC/"/>
+    
+    
+      <category term="ZBuffer" scheme="http://yoursite.com/tags/ZBuffer/"/>
+    
+  </entry>
   
   <entry>
     <title>How To Rebuild Hexo</title>
@@ -517,37 +542,6 @@
       
       
         &lt;h2 id=&quot;Basic-Knowledge&quot;&gt;&lt;a href=&quot;#Basic-Knowledge&quot; class=&quot;headerlink&quot; title=&quot;Basic Knowledge&quot;&gt;&lt;/a&gt;Basic Knowledge&lt;/h2&gt;&lt;h3 id=&quot;Vertex-Coveri
-      
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
-    
-    
-      <category term="Bipartite Graph" scheme="http://yoursite.com/tags/Bipartite-Graph/"/>
-    
-      <category term="Maximum Matching" scheme="http://yoursite.com/tags/Maximum-Matching/"/>
-    
-      <category term="Hungarian Algorithm" scheme="http://yoursite.com/tags/Hungarian-Algorithm/"/>
-    
-      <category term="Graph Theory" scheme="http://yoursite.com/tags/Graph-Theory/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bipartite Graph Maximum Matching</title>
-    <link href="http://yoursite.com/2016/05/07/Bipartite-Graph-Maximum-Matching/"/>
-    <id>http://yoursite.com/2016/05/07/Bipartite-Graph-Maximum-Matching/</id>
-    <published>2016-05-07T07:52:56.000Z</published>
-    <updated>2017-09-24T07:07:54.098Z</updated>
-    
-    <content type="html"><![CDATA[<p>In this morning, my roommate H’s female friend asked him for help.Through my analysis, the girl was taking an examination… .What terrible means the girl was using!The girl begged my roommate H to help her to pass the examination and show how important the examination is to her constantly.But my roommate H was not clever enough to solve the problem and ask for my aid.Out of humanitarian and pure friendship between H and me, I decided to help this poor and desperate girl.The girl sent the promble to me and told me that there were only ten minutes left… .I took a look at the problem and found that the problem is very easy.It model of the problem is just to find the maximum matching in a bipartite graph.The description of the promble is below:</p><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are many black points B={b1,b2,……,bn} and white points W={w1,w2,……,wm} in plane.A black point bi=(xi,yi) match a white point wj=(xj,yj) if and only if xi&lt;=xj and yi&lt;=yj.Futhermore a point can only match to one point in opposite colour.The problem is to find out the maximum number of matching conforming to the rules above.</p><h2 id="Input-Format"><a href="#Input-Format" class="headerlink" title="Input Format"></a>Input Format</h2><p>The first line includes an integer T represents there are T cases;<br>In each case, the first line has two integers n, m represent the number of black points and white points;<br>Then there is n+m lines and each line has two integers represent the coordinate of black points or white points.</p><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Title：Solution</span></div><div class="line"><span class="comment">//Author：Call偶围城</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXP 10000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100000</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> nblack, nwhite;</div><div class="line"><span class="keyword">int</span> blackMwhite[MAXN];</div><div class="line"><span class="keyword">int</span> blacks[MAXN][<span class="number">2</span>], whites[MAXN][<span class="number">2</span>];</div><div class="line"><span class="keyword">int</span> bond[MAXP][MAXP];</div><div class="line"><span class="keyword">int</span> matching[MAXN];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line"><span class="keyword">int</span> i;</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; nblack;i++) &#123;</div><div class="line"><span class="keyword">if</span> (bond[i][x] == <span class="number">1</span> &amp;&amp; matching[i] == <span class="number">-1</span>) &#123;</div><div class="line">matching[i] = <span class="number">1</span>;</div><div class="line"><span class="keyword">if</span> (blackMwhite[i] == <span class="number">-1</span> || find(blackMwhite[i]) == <span class="number">1</span>) &#123;</div><div class="line">blackMwhite[i] = x;</div><div class="line"><span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">int</span> T;</div><div class="line"><span class="keyword">int</span> cnt;</div><div class="line"></div><div class="line"><span class="keyword">int</span> i, j, k;</div><div class="line"></div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line"><span class="keyword">while</span> (T--) &#123;</div><div class="line">cnt = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;nblack, &amp;nwhite);</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; MAXP;i++)</div><div class="line"><span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; MAXP;j++)</div><div class="line">bond[i][j] = <span class="number">-1</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; MAXN;i++) </div><div class="line">blackMwhite[i] = <span class="number">-1</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; nblack;i++)</div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;blacks[i][<span class="number">0</span>], &amp;blacks[i][<span class="number">1</span>]);</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; nwhite;i++) </div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;whites[i][<span class="number">0</span>], &amp;whites[i][<span class="number">1</span>]);</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; nblack;i++) &#123;</div><div class="line"><span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; nwhite;j++) &#123;</div><div class="line"><span class="keyword">if</span> (blacks[i][<span class="number">0</span>] &lt;= whites[j][<span class="number">0</span>] </div><div class="line"> &amp;&amp; blacks[i][<span class="number">1</span>] &lt;= whites[j][<span class="number">1</span>]) &#123;</div><div class="line">bond[i][j] = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; nwhite;i++) &#123;</div><div class="line"><span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; MAXN;j++)</div><div class="line">matching[j] = <span class="number">-1</span>;</div><div class="line"><span class="keyword">if</span> (find(i) == <span class="number">1</span>)</div><div class="line">cnt++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, cnt);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="Samples"><a href="#Samples" class="headerlink" title="Samples"></a>Samples</h2><p><strong>Sample Input</strong><br>2<br>2 2<br>1 0<br>0 1<br>1 1<br>0 0<br>1 1<br>1 1<br>0 0</p><p><strong>Sample Output</strong><br>1<br>0</p><h2 id="Plot-Followed"><a href="#Plot-Followed" class="headerlink" title="Plot Followed"></a>Plot Followed</h2><p>Unfortunately, I just right used ten minutes to solve the promble and my PC is run on Ubuntu system.So I sent the code file to my roommate H by E-mail and he used QQ to sent the code file to the poor girl.This process totally spent about eleven minutes.That means it was just one minute after the end of examination when the girl recieved the code file.<br>The girl said me that she felt said that she failed the important examination but thanks a lot for my great help.She said she had never thought there would be anyone help she without any rewards or aims.But I considered the girl was too young too naive.As the old saying, there isn’t any love and hate without any reason, so do my assistance.I helped you because<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>I just thought the problem was a little interesting and wanna solve it, hhha  (●°u°●)​ 」<br><br><br><br><br><br><br><br></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;In this morning, my roommate H’s female friend asked him for help.Through my analysis, the girl was taking an examination… .What terrible
       
     
     </summary>
