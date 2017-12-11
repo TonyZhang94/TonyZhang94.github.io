@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-11T03:07:47.710Z</updated>
+  <updated>2017-12-11T03:37:04.358Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Multi Loops Sweeping Base On Euler Operators</title>
+    <link href="http://yoursite.com/2017/12/07/Multi-Loops-Sweeping-Base-On-Euler-Operators/"/>
+    <id>http://yoursite.com/2017/12/07/Multi-Loops-Sweeping-Base-On-Euler-Operators/</id>
+    <published>2017-12-07T09:59:24.000Z</published>
+    <updated>2017-12-11T03:37:04.358Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是笔者在浙江大学读研阶段选修的由<a href="http://mypage.zju.edu.cn/smgao/582869.html" target="_blank" rel="external">高曙明教授</a>所授的计算机图形学的大作业，基于欧拉操作的多环扫成。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。高老师也是笔者实验室的大老板，其一身的学者风范，严谨的态度，学术的精神和作风，是笔者在浙江大学读研阶段最敬佩的老师之一。</p><h2 id="说明文档"><a href="#说明文档" class="headerlink" title="说明文档"></a>说明文档</h2><center><br><img src="http://img.blog.csdn.net/20171211113511353?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page1"><br><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113532810?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page2"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113555380?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page3"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113613252?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page4"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113631602?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page5"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113651065?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page6"><br></center><h2 id="百度云链接"><a href="#百度云链接" class="headerlink" title="百度云链接"></a>百度云链接</h2><p>笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">链接：https://pan.baidu.com/s/1hsrNJ5E 密码：ny39</div></pre></td></tr></table></figure></p><p>感谢您的阅读！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;这是笔者在浙江大学读研阶段选修的由&lt;a href=&quot;http://mypage.zju.edu.cn/smgao/582869.html&quot; 
+      
+    
+    </summary>
+    
+      <category term="CAD&amp;GC" scheme="http://yoursite.com/categories/CAD-GC/"/>
+    
+    
+      <category term="EulerOperation" scheme="http://yoursite.com/tags/EulerOperation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Interval Scanning Line ZBuffer</title>
     <link href="http://yoursite.com/2017/11/16/Interval-Scanning-Line-ZBuffer/"/>
     <id>http://yoursite.com/2017/11/16/Interval-Scanning-Line-ZBuffer/</id>
     <published>2017-11-16T14:56:11.000Z</published>
-    <updated>2017-12-11T03:07:47.710Z</updated>
+    <updated>2017-12-11T03:33:47.332Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是笔者在浙江大学读研阶段选修的由<a href="http://www.cad.zju.edu.cn/home/jqfeng/" target="_blank" rel="external">冯结青教授</a>和<a href="http://person.zju.edu.cn/rwang" target="_blank" rel="external">王锐教授</a>所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。</p><h2 id="说明文档"><a href="#说明文档" class="headerlink" title="说明文档"></a>说明文档</h2><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic1.png"><br></center><br><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic2.png"><br></center><br><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic3.png"><br></center><br><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic4.png"><br></center><br><center><br><img src="/Interval-Scanning-Line-ZBuffer/pic/pic5.png"><br></center><h2 id="百度云盘链接"><a href="#百度云盘链接" class="headerlink" title="百度云盘链接"></a>百度云盘链接</h2><p>笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">链接：https://pan.baidu.com/s/1gfQv5xp 密码：5p1n</div></pre></td></tr></table></figure></p><p>感谢您的阅读！</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是笔者在浙江大学读研阶段选修的由<a href="http://www.cad.zju.edu.cn/home/jqfeng/" target="_blank" rel="external">冯结青教授</a>和<a href="http://person.zju.edu.cn/rwang" target="_blank" rel="external">王锐教授</a>所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。</p><h2 id="说明文档"><a href="#说明文档" class="headerlink" title="说明文档"></a>说明文档</h2><center><br><img src="http://img.blog.csdn.net/20171211113102686?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page1"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113158134?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page2"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113225179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page3"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113246057?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page4"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113326549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page5"><br></center><h2 id="百度云盘链接"><a href="#百度云盘链接" class="headerlink" title="百度云盘链接"></a>百度云盘链接</h2><p>笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">链接：https://pan.baidu.com/s/1gfQv5xp 密码：5p1n</div></pre></td></tr></table></figure></p><p>感谢您的阅读！</p>]]></content>
     
     <summary type="html">
     
@@ -525,37 +550,6 @@
       <category term="Graph Theory" scheme="http://yoursite.com/tags/Graph-Theory/"/>
     
       <category term="Maximum Independent Set" scheme="http://yoursite.com/tags/Maximum-Independent-Set/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Properties of Bipartite Graph</title>
-    <link href="http://yoursite.com/2016/05/07/Hungarian-Algorithm/"/>
-    <id>http://yoursite.com/2016/05/07/Hungarian-Algorithm/</id>
-    <published>2016-05-07T08:28:33.000Z</published>
-    <updated>2017-09-24T07:07:43.921Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h2><h3 id="Vertex-Covering"><a href="#Vertex-Covering" class="headerlink" title="Vertex Covering"></a>Vertex Covering</h3><p><strong>Vertex Covering：</strong><br>A vertex set and every edge has more one terminal in the set.<br><strong>Minimal Vertex Covering：</strong><br>A vertex covering and its any proper subset isn’t a vertex covering.<br><strong>Minimum Vertex Covering：</strong><br>A vertex covering who has the minimum vertex.<br><strong>Vertex Covering Number：</strong><br>The number of vertexs in the minimum vertex covering.</p><h3 id="Edge-Covering"><a href="#Edge-Covering" class="headerlink" title="Edge Covering"></a>Edge Covering</h3><p><strong>Edge Covering：</strong><br>An edge set and every vertex is adjacent to the edge in the set.<br><strong>Minimal Edge Covering：</strong><br>An edge covering and its any proper subset isn’t a edge covering.<br><strong>Minimum Edge Covering：</strong><br>An edge coving who has the minimum edge.<br><strong>Edge Covering Number：</strong><br>The number of edges in the minimun edge coving.</p><h3 id="Independent-Set"><a href="#Independent-Set" class="headerlink" title="Independent Set"></a>Independent Set</h3><p><strong>Independent Set：</strong><br>A vertex set and every vertex in the set isn’t adjacent to any other vertex in the set.<br><strong>Maximal Independent Set：</strong><br>An independent set and the set is no longer an independent set when adding any vertex to it.<br><strong>Maximum Independent Set：</strong><br>An independent set who has the maximum vertex.<br><strong>Vertex Independent Set：</strong><br>The number of vertexs in the maximum independent set.</p><p><strong>Independent set can also be define as a vertex set of a derived subgraph who’s a zero diagram.</strong></p><h3 id="Clique"><a href="#Clique" class="headerlink" title="Clique"></a>Clique</h3><p><strong>Clique：</strong><br>A vertex set and every vertex in the set is adjacent to any other vertex in the set.<br><strong>Maximal Clique：</strong><br>A clique and the set is no longer a clique when adding any vertex to it.<br><strong>Maximum Clique：</strong><br>A clique who has the maximum vertex.<br><strong>Clique Number：</strong><br>The number of vertexs in the maximum independent set.</p><p><strong>Clique can also be define as a vertex set of a derived subgraph who’s a complete graph.</strong></p><h3 id="Edge-Independent-Set"><a href="#Edge-Independent-Set" class="headerlink" title="Edge Independent Set"></a>Edge Independent Set</h3><p><strong>Edge Independent Set：</strong><br>An edge set and every edge in the set isn’t adjacent to any other edge in the set.<br><strong>Maximal Edge Independent Set：</strong><br>An edge independent set and the set is no longer an edge independent set when adding any edge to it.<br><strong>Maximum Edge Independent Set：</strong><br>An edge independent who has the maximum edge.<br><strong>Edge Independent Set Covering Number：</strong><br>The number of edges in the maximum edge independent set.</p><p><strong>Edge independent set also called matching， corresponding concepts have maximal matching， maximum matching， matching number.</strong></p><h3 id="Dominating-Set"><a href="#Dominating-Set" class="headerlink" title="Dominating Set"></a>Dominating Set</h3><p><strong>Dominating Set：</strong><br>A vertex set and any vertex isn’t in the set has more one adjacent vertex in the set.<br><strong>Minimal Dominating Set：</strong><br>A dominating set and it’s any proper subset isn’t a dominating set.<br><strong>Minimum Dominating Set：</strong><br>A dominating set who has the minimum vertex.<br><strong>Dominating Number：</strong><br>The number of vertexs in the minimum dominating set.</p><h3 id="Edge-Dominating-Set"><a href="#Edge-Dominating-Set" class="headerlink" title="Edge Dominating Set"></a>Edge Dominating Set</h3><p><strong>Edge Dominating Set：</strong><br>An egde set and any edge isn’t in the set has more one adjacent edge in the set.<br><strong>Minimal Edge Dominating Set：</strong><br>An edge dominating set and it’s any proper subset isn’t an edge dominating set.<br><strong>Minimum Edge Dominating Set：</strong><br>An edge dominating set who has the minimum edge.<br><strong>Edge Dominating Number：</strong><br>The number of edges in the minimum edge dominating set.</p><h3 id="Path-Covering"><a href="#Path-Covering" class="headerlink" title="Path Covering"></a>Path Covering</h3><p>Using minimum disjoint edges to cover all the vertexs in the graph.<br>path covering number = vertexs - edges in path covering</p><h2 id="Bipartite-Graph"><a href="#Bipartite-Graph" class="headerlink" title="Bipartite Graph"></a>Bipartite Graph</h2><p>A bipartite graph is a graph whose vertices can be divided into two disjoint sets U and V such that every edge connects a vertex in U to one in V. </p><h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>In a bipartite graph：</p><p><strong>Property One：</strong><br>minimum vertex covering = maximum matching</p><p><strong>Property Two：</strong><br>minimum path coverage of DAG = vertexs - maximum matching</p><p><strong>Property Three：</strong><br>maximum independent set = vertexs - maximum matching</p><p><strong>Property Four：</strong><br>maximum matching = matching vertexs in left set + unmatching vertexs in right set</p><p><strong>Property Five：</strong><br>minimum edge covering = maximum independent set</p><h2 id="Hungarian-Algorithm"><a href="#Hungarian-Algorithm" class="headerlink" title="Hungarian Algorithm"></a>Hungarian Algorithm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">// Module</div><div class="line"></div><div class="line">int find(int x) &#123;</div><div class="line">int i;</div><div class="line">for (i = 1;i &lt;= m;i++) &#123;</div><div class="line">if (bond[x][i] == 1 &amp;&amp; march[i] == -1) &#123;</div><div class="line">march[i] = 1;</div><div class="line">if (vis[i] == -1 || find(vis[i]) == 1) &#123;</div><div class="line">vis[i] = x;</div><div class="line">return 1;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">...</div><div class="line">...</div><div class="line"></div><div class="line">memset(vis, -1, sizeof(vis));</div><div class="line">// Init bond</div><div class="line"></div><div class="line">for (i = 1;i &lt;= n;i++) &#123;</div><div class="line">for (j = 0;j &lt; MAX;j++)</div><div class="line">march[j] = -1;</div><div class="line"></div><div class="line">if (find(i) == 1) &#123;</div><div class="line">cnt++;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Basic-Knowledge&quot;&gt;&lt;a href=&quot;#Basic-Knowledge&quot; class=&quot;headerlink&quot; title=&quot;Basic Knowledge&quot;&gt;&lt;/a&gt;Basic Knowledge&lt;/h2&gt;&lt;h3 id=&quot;Vertex-Coveri
-      
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
-    
-    
-      <category term="Bipartite Graph" scheme="http://yoursite.com/tags/Bipartite-Graph/"/>
-    
-      <category term="Maximum Matching" scheme="http://yoursite.com/tags/Maximum-Matching/"/>
-    
-      <category term="Hungarian Algorithm" scheme="http://yoursite.com/tags/Hungarian-Algorithm/"/>
-    
-      <category term="Graph Theory" scheme="http://yoursite.com/tags/Graph-Theory/"/>
     
   </entry>
   
