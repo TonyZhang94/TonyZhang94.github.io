@@ -59,23 +59,23 @@
 
 
 
-<meta name="description" content="简介这是笔者在浙江大学读研阶段选修的由冯结青教授和王锐教授所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。 说明文档  百度云盘链接笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者1链接：https://pan.baidu.com/s/1gfQv5xp 密码：5p1n 感谢您的阅读！">
+<meta name="description" content="简介这是笔者在浙江大学读研阶段选修的由冯结青教授和王锐教授所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。此次作业对笔者是一次巨大的挑战，前前后后笔者耗费了二周多除去上课和做老板给的外包外的所有可利用的时间。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。 说明文档  百度云盘链接笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者1">
 <meta name="keywords" content="ZBuffer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Interval Scanning Line ZBuffer">
-<meta property="og:url" content="http://yoursite.com/2017/11/16/Interval-Scanning-Line-ZBuffer/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/12/07/Interval-Scanning-Line-ZBuffer/index.html">
 <meta property="og:site_name" content="围城个人博客">
-<meta property="og:description" content="简介这是笔者在浙江大学读研阶段选修的由冯结青教授和王锐教授所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。 说明文档  百度云盘链接笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者1链接：https://pan.baidu.com/s/1gfQv5xp 密码：5p1n 感谢您的阅读！">
+<meta property="og:description" content="简介这是笔者在浙江大学读研阶段选修的由冯结青教授和王锐教授所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。此次作业对笔者是一次巨大的挑战，前前后后笔者耗费了二周多除去上课和做老板给的外包外的所有可利用的时间。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。 说明文档  百度云盘链接笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者1">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20171211113102686?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171211113158134?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171211113225179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171211113246057?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171211113326549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-12-11T03:33:47.332Z">
+<meta property="og:updated_time" content="2017-12-11T03:48:06.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Interval Scanning Line ZBuffer">
-<meta name="twitter:description" content="简介这是笔者在浙江大学读研阶段选修的由冯结青教授和王锐教授所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。 说明文档  百度云盘链接笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者1链接：https://pan.baidu.com/s/1gfQv5xp 密码：5p1n 感谢您的阅读！">
+<meta name="twitter:description" content="简介这是笔者在浙江大学读研阶段选修的由冯结青教授和王锐教授所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。此次作业对笔者是一次巨大的挑战，前前后后笔者耗费了二周多除去上课和做老板给的外包外的所有可利用的时间。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。 说明文档  百度云盘链接笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者1">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20171211113102686?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -256,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-11-16T22:56:11+08:00" content="2017-11-16">
-              2017-11-16
+            <time itemprop="dateCreated" datetime="2017-12-07T17:59:24+08:00" content="2017-12-07">
+              2017-12-07
             </time>
           </span>
 
@@ -286,8 +286,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/11/16/Interval-Scanning-Line-ZBuffer/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/16/Interval-Scanning-Line-ZBuffer/" itemprop="commentsCount"></span>
+                <a href="/2017/12/07/Interval-Scanning-Line-ZBuffer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/07/Interval-Scanning-Line-ZBuffer/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -309,7 +309,7 @@
       
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是笔者在浙江大学读研阶段选修的由<a href="http://www.cad.zju.edu.cn/home/jqfeng/" target="_blank" rel="external">冯结青教授</a>和<a href="http://person.zju.edu.cn/rwang" target="_blank" rel="external">王锐教授</a>所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。</p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是笔者在浙江大学读研阶段选修的由<a href="http://www.cad.zju.edu.cn/home/jqfeng/" target="_blank" rel="external">冯结青教授</a>和<a href="http://person.zju.edu.cn/rwang" target="_blank" rel="external">王锐教授</a>所授的计算机图形学的大作业之一，区间扫描线ZBuffer算法的实现。此次作业对笔者是一次巨大的挑战，前前后后笔者耗费了二周多除去上课和做老板给的外包外的所有可利用的时间。以下就是该作业的说明文档，以及全部工程和附属说明文件的百度云链接。</p>
 <h2 id="说明文档"><a href="#说明文档" class="headerlink" title="说明文档"></a>说明文档</h2><center><br><img src="http://img.blog.csdn.net/20171211113102686?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page1"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113158134?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page2"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113225179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page3"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113246057?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page4"><br></center><br><center><br><img src="http://img.blog.csdn.net/20171211113326549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="page5"><br></center>
 
 <h2 id="百度云盘链接"><a href="#百度云盘链接" class="headerlink" title="百度云盘链接"></a>百度云盘链接</h2><p>笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">链接：https://pan.baidu.com/s/1gfQv5xp 密码：5p1n</div></pre></td></tr></table></figure></p>
@@ -337,17 +337,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/22/How-To-Rebuild-Hexo/" rel="next" title="How To Rebuild Hexo">
-                <i class="fa fa-chevron-left"></i> How To Rebuild Hexo
+              <a href="/2017/11/16/Multi-Loops-Sweeping-Base-On-Euler-Operators/" rel="next" title="Multi Loops Sweeping Base On Euler Operators">
+                <i class="fa fa-chevron-left"></i> Multi Loops Sweeping Base On Euler Operators
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/07/Multi-Loops-Sweeping-Base-On-Euler-Operators/" rel="prev" title="Multi Loops Sweeping Base On Euler Operators">
-                Multi Loops Sweeping Base On Euler Operators <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -373,8 +369,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/11/16/Interval-Scanning-Line-ZBuffer/"
-           data-title="Interval Scanning Line ZBuffer" data-url="http://yoursite.com/2017/11/16/Interval-Scanning-Line-ZBuffer/">
+      <div class="ds-thread" data-thread-key="2017/12/07/Interval-Scanning-Line-ZBuffer/"
+           data-title="Interval Scanning Line ZBuffer" data-url="http://yoursite.com/2017/12/07/Interval-Scanning-Line-ZBuffer/">
       </div>
     
   </div>
