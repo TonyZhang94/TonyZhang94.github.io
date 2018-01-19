@@ -67,7 +67,7 @@
 <meta property="og:site_name" content="围城个人博客">
 <meta property="og:description" content="先说几句：  如果可以换centos吧，Ubuntu下安装这些的路径，配置文件名称都和其他linxu系统不一致，很难找 Ubuntu只提供PHP7 请不要安装PHP7 请不要安装PHP7 请不要安装PHP7 如果读者非要安装PHP7，请退出笔者的博客吧  Apache21apt-get install apache2 这个没什么好说的，配置文件在/etc/apache2/apache2.conf下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-01T15:26:11.672Z">
+<meta property="og:updated_time" content="2018-01-19T14:08:18.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04 配置apache php mysql 的各种坑">
 <meta name="twitter:description" content="先说几句：  如果可以换centos吧，Ubuntu下安装这些的路径，配置文件名称都和其他linxu系统不一致，很难找 Ubuntu只提供PHP7 请不要安装PHP7 请不要安装PHP7 请不要安装PHP7 如果读者非要安装PHP7，请退出笔者的博客吧  Apache21apt-get install apache2 这个没什么好说的，配置文件在/etc/apache2/apache2.conf下">
@@ -330,7 +330,7 @@
 <p>如果还不行的话就试试网上说的safe_mysqld，添加skip-name-resolve等方法吧</p>
 <p>请记住服务器3306端口一定要打开！服务器3306端口一定要打开！服务器3306端口一定要打开！</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>windows下安装可以直接下载LAMP，WAMP，XAMPP都可以</p>
-<p>上传文件大小限制修改php.ini的upload_max_file，并且上传文件要把项目赋予777权限（什么是777上网百度吧）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod -R 777 projectDir</div></pre></td></tr></table></figure></p>
+<p>上传文件大小限制修改php.ini的upload_max_filesize和post_max_size（搜索方式为 “/search content”），然后重启apache），并且上传文件要把项目赋予777权限（什么是777上网百度吧）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod -R 777 projectDir</div></pre></td></tr></table></figure></p>
 <p>不到万不得已不要重装MySQL</p>
 <p>查看端口是否打开（以3306为例，以下显示为打开）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">netstat -apn|grep 3306</div><div class="line">tcp6  0  0 127.0.0.1:3306  :::*  LISTEN    13524/mysqld</div></pre></td></tr></table></figure></p>
 <p>window下python的MySQLdb笔者没有找到pip或者esay_install的办法，VC++9.0的环境笔者也差不多有了，最后是<a href="http://www.codegood.com/archives/129" target="blank">网上下载</a>直接安装的，安装后在脚本里import就可以了。</p>
@@ -562,7 +562,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

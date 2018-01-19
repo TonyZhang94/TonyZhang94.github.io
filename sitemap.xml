@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/02/12/Ubuntu16.04-%E9%85%8D%E7%BD%AEapache-php-mysql-%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91/</loc>
+    
+    <lastmod>2018-01-19T14:08:18.038Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/11/16/Multi-Loops-Sweeping-Base-On-Euler-Operators/</loc>
     
     <lastmod>2017-12-12T02:55:35.433Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/2017/12/07/Interval-Scanning-Line-ZBuffer/</loc>
     
     <lastmod>2017-12-11T03:48:06.392Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/02/12/Ubuntu16.04-%E9%85%8D%E7%BD%AEapache-php-mysql-%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91/</loc>
-    
-    <lastmod>2017-12-01T15:26:11.672Z</lastmod>
     
   </url>
   
