@@ -1,9 +1,0 @@
-Is said to in a long, long time ago, the poor rabbit experienced in the life the biggest blow - race lost to the tortoise, depressed in the heart, vowed to avenge, then hid in a Hangzhou Xiasha an agricultural park hardships painstaking practice, finally mastered the skills, without rest to be constant velocity (VR M / s) has been running. The rabbit has been trying to find a chance to teach a good lesson to the tortoise, to the snow before the shame.
-
-Recently when HDU held the 50 anniversary of the major social celebrities in Xiasha, the rabbit would also take this opportunity to challenge the tortoise. While the tortoise knows that winning is not, but under pressure from public opinion, can only accept the challenge.
-
-The game is based on a straight road, the length of L meters, the rules are very simple, who first arrived at the end who even win.
-
-Helpless turtle since the last win, has become a turtle, was a number of gossip magazine called the "Liu Xiang of the animal kingdom", advertising constantly, there are a lot of savings on hand. In order to win the rabbit, tortoise took under the original capital bought the most advanced weapon -- "" Xiaofeige "licensing of electric vehicles. The car in the electric can to VT1 M / s speed "flying", but limited battery capacity, each is full of electricity can only travel distance of C M, then can only by foot to push off the tortoise for VT2 M / s with the pedal speed. More over is that the tortoise actually built a lot of (N) power station on the runway, for their own charging electric vehicles. Among them, each charge takes T seconds. Of course, the turtle after a charging station can choose to go or not to charge.
-
-The race is about to start, and the hare and the tortoise, which is full of electricity, stand on the starting line. Your task is to write a program to determine the best way to enter the turtle when the program can not win has been running at a constant speed of the rabbit.
