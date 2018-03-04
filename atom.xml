@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-11T03:48:06.392Z</updated>
+  <updated>2018-03-04T05:23:49.107Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Monte-Carlo-Ray-Tracing</title>
+    <link href="http://yoursite.com/2018/02/21/Monte-Carlo-Ray-Tracing/"/>
+    <id>http://yoursite.com/2018/02/21/Monte-Carlo-Ray-Tracing/</id>
+    <published>2018-02-21T00:03:21.000Z</published>
+    <updated>2018-03-04T05:23:49.107Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是笔者在浙江大学读研阶段选修的由<a href="http://www.cad.zju.edu.cn/home/jqfeng/" target="_blank" rel="external">冯结青教授</a>和<a href="http://person.zju.edu.cn/rwang" target="_blank" rel="external">王锐教授</a>所授的计算机图形学的大作业之一，Monte Carlo Ray Tracing（蒙特卡洛光线追踪）的实现。此次作业对笔者是一次从所未有的挑战，前前后后笔者耗费了一个半月时间。其中第一版用了将近一个月的时间，但是很可惜最后结果炸了，而且找不到原因。然后笔者把这个作业放下了一段时间，并去接了一个锅。等到快放假的时候再捡起了这个作业开始重写，并且很幸运的赶在了除夕之前写完了。以下就是笔者的感想，该作业的说明文档，以及全部工程和附属说明文件的百度云链接。</p><h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>这次作业对于笔者最大的困难其实并不在于算法，虽然从底层开始实现确实非常复杂。等到年后写这篇博客的时候基本已经忘干净了，么什多抖动抽样，什么几何求交早已记不清了。所以笔者认为这个作业对自己受益最大的还是在工程方面。笔者使用过不少框架，但是从底层开始写这么复杂的工程还是第一次，类之间的相互引用和类方法之间相互调用曾让笔者一度陷入混乱。笔者也是极少自己写此等规模的继承、工厂和容器等，记得上一次是在两年前写游戏开发的作业时写过一些继承和虚类。在代码实现过程中笔者也犯了很多的错误，但是很多最后没有心情改了，这里总结一下笔者的一些错误和心得：</p><ul><li>封装、继承、多态是很有用的，但是有时会很难驾驭，尤其是后两者</li><li>构造函数不需要排列组合式的一一实现，可以用set方法替代</li><li>不是所有成员都要有set函数，有些成员是用成员方法计算出来的 如 GeometricObject 中的 Normal</li><li>同一模块开发宜尽快完成，前后时间跨度长，容易导致子类父类同一方法 名字不一样 如笔者程序中的 get_normal 和 compute_normal</li><li>前期规划要慎重，不然会写很多没用的方法，耗时间，容易出错</li><li>public、protect、private前期同样要规划好，笔者后期就乱了，几乎全部改为了public</li><li>内联函数最好控制一下代码行数，不是所有运算符重载都适合写成内敛的形式</li><li>容器类的使用可以减少很多重复的运算</li><li>开发过程中就要及时写详细的注释，不然过一会就看不懂了，最后补注释的时候都是泪</li></ul><p>除此之外，笔者记得的就只有那段时间写作业的煎熬，都不知道自己写的每一步是对的还是错的，这个不同于业务逻辑每一步都有确定的结果，所以只能小心翼翼的写，生怕写到最后一运行又炸了。</p><center><br><img src="http://img.blog.csdn.net/20180304120732504?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="200" height="200" alt="图片名称"><br></center><h2 id="说明文档"><a href="#说明文档" class="headerlink" title="说明文档"></a>说明文档</h2><center><br><img src="http://img.blog.csdn.net/20180304105939669?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="page1"><br></center><center><br><img src="http://img.blog.csdn.net/20180304110011831?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="page2"><br></center><center><br><img src="http://img.blog.csdn.net/20180304110129934?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="page3"><br></center><center><br><img src="http://img.blog.csdn.net/20180304110151460?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2FsbE91V2VpQ2hlbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="page4"><br></center><h2 id="百度云盘链接"><a href="#百度云盘链接" class="headerlink" title="百度云盘链接"></a>百度云盘链接</h2><p>笔者把自己的代码无偿提供给大家，希望和大家相互学习，如果链接失效了可以联系笔者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">链接：https://pan.baidu.com/s/1kW4Z0dL 密码：gwor</div></pre></td></tr></table></figure></p><p>感谢您的阅读！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;这是笔者在浙江大学读研阶段选修的由&lt;a href=&quot;http://www.cad.zju.edu.cn/home/jqfeng/&quot; targ
+      
+    
+    </summary>
+    
+      <category term="CAD&amp;GC" scheme="http://yoursite.com/categories/CAD-GC/"/>
+    
+    
+      <category term="RayTracing" scheme="http://yoursite.com/tags/RayTracing/"/>
+    
+  </entry>
   
   <entry>
     <title>Interval Scanning Line ZBuffer</title>
@@ -519,37 +544,6 @@
       <category term="Generating" scheme="http://yoursite.com/tags/Generating/"/>
     
       <category term="Combinatorial Mathematics" scheme="http://yoursite.com/tags/Combinatorial-Mathematics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Maximum Independent Set</title>
-    <link href="http://yoursite.com/2016/05/07/Maximum-Independent-Set/"/>
-    <id>http://yoursite.com/2016/05/07/Maximum-Independent-Set/</id>
-    <published>2016-05-07T11:51:01.000Z</published>
-    <updated>2017-09-24T07:07:39.987Z</updated>
-    
-    <content type="html"><![CDATA[<p>This case is an implements of Hungarian Algorithm.The module of the problem is maximum independent number = vertexs - maximum matching.</p><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>The second year of the university somebody started a study on the romantic relations between the students. The relation “romantically involved” is defined between one girl and one boy. For the study reasons it is necessary to find out the maximum set satisfying the condition: there are no two students in the set who have been “romantically involved”. The result of the program is the number of students in such a set.</p><p>The input contains several data sets in text format. Each data set represents one set of subjects of the study, with the following description:</p><p>the number of students<br>the description of each student, in the following format<br>student_identifier:(number_of_romantic_relations) student_identifier1 student_identifier2 student_identifier3 …<br>or<br>student_identifier:(0)</p><p>The student_identifier is an integer number between 0 and n-1, for n subjects.<br>For each given data set, the program should write to standard output a line containing the result.</p><h2 id="Implements"><a href="#Implements" class="headerlink" title="Implements"></a>Implements</h2><p>Attention：The bond is bidirectional and the maximum matching number = 1/2 relations.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Title：Hungarian Algorithm</span></div><div class="line"><span class="comment">// Author：Call偶围城</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 1005</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> N;</div><div class="line"><span class="keyword">int</span> stu[MAX];</div><div class="line"><span class="keyword">int</span> bond[MAX][MAX];</div><div class="line"><span class="keyword">int</span> matching[MAX];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> stuNo)</span> </span>&#123;</div><div class="line"><span class="keyword">int</span> i;</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; N;i++) &#123;</div><div class="line"><span class="keyword">if</span> (bond[stuNo][i] == <span class="number">1</span> &amp;&amp; matching[i] == <span class="number">-1</span>)&#123;</div><div class="line">matching[i] = <span class="number">1</span>;</div><div class="line"><span class="keyword">if</span> (stu[i] == <span class="number">-1</span> || find(stu[i]) == <span class="number">1</span>) &#123;</div><div class="line">stu[i] = stuNo;</div><div class="line"><span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">int</span> cnt;</div><div class="line"><span class="keyword">int</span> i, j, k, n;</div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N) != EOF) &#123;</div><div class="line">cnt = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; MAX;i++) &#123;</div><div class="line">stu[i] = <span class="number">-1</span>;</div><div class="line"><span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; MAX;j++)</div><div class="line">bond[i][j] = <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; N;i++) &#123;</div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d: (%d)"</span>, &amp;j, &amp;n);</div><div class="line"><span class="keyword">while</span> (n--) &#123;</div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</div><div class="line">bond[j][k] = <span class="number">1</span>;</div><div class="line">bond[k][j] = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; N;i++)</div><div class="line"><span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; N;j++)</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; N;i++) &#123;</div><div class="line"><span class="keyword">for</span> (j = <span class="number">0</span>;j &lt; N;j++) &#123;</div><div class="line">matching[j] = <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (find(i) == <span class="number">1</span>) &#123;</div><div class="line">cnt++;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, N-cnt/<span class="number">2</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><h2 id="Samples"><a href="#Samples" class="headerlink" title="Samples"></a>Samples</h2><p><strong>Inputs：</strong><br>7<br>0: (3) 4 5 6<br>1: (2) 4 6<br>2: (0)<br>3: (0)<br>4: (2) 0 1<br>5: (1) 0<br>6: (2) 0 1<br>3<br>0: (2) 1 2<br>1: (1) 0<br>2: (1) 0</p><p><strong>Outputs：</strong><br>5<br>2</p><h2 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h2><p><a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1068" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1068</a></a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This case is an implements of Hungarian Algorithm.The module of the problem is maximum independent number = vertexs - maximum matching.&lt;/
-      
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
-    
-    
-      <category term="Bipartite Graph" scheme="http://yoursite.com/tags/Bipartite-Graph/"/>
-    
-      <category term="Hungarian Algorithm" scheme="http://yoursite.com/tags/Hungarian-Algorithm/"/>
-    
-      <category term="Graph Theory" scheme="http://yoursite.com/tags/Graph-Theory/"/>
-    
-      <category term="Maximum Independent Set" scheme="http://yoursite.com/tags/Maximum-Independent-Set/"/>
     
   </entry>
   
